@@ -1,0 +1,1110 @@
+<!-- ======= Global Styles ======= -->
+<style>
+  :root {
+    --primary: #e3ad55;
+    --primary-dark: #c99740;
+    --secondary: #8c6d46;
+    --light: #f8f9fa;
+    --dark: #1a1a1a;
+    --shadow: 0 6px 20px rgba(227, 173, 85, 0.15);
+  }
+  
+  /* شريط التقدم */
+  .progress-container {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 20px auto;
+    max-width: 900px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    transition: width 0.5s ease;
+  }
+  
+  /* زر الدردشة الموحد */
+  .chat-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .chat-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(227, 173, 85, 0.3);
+  }
+  
+  /* الشريط العلوي */
+  .top-bar {
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  
+  /* اللوجو */
+  .logo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo img {
+    height: 100%;
+  }
+  
+  .logo-text {
+    font-weight: bold;
+    color: var(--dark);
+    font-size: 1.2rem;
+  }
+  
+  .logo-text span {
+    color: var(--primary);
+  }
+  
+  /* تنسيق عام للبطاقات */
+  .card {
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+    background: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+</style>
+
+<!-- ======= PAGE 1: الترحيب ======= -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مرحبًا – MOBEK MEDIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .step-indicator {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    
+    .content {
+      padding: 30px 0;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    
+    .brand {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-weight: bold;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-top: 2rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(227, 173, 85, 0.3);
+    }
+    
+    ul, ol {
+      padding-right: 1.25rem;
+    }
+    
+    li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي مع اللوجو -->
+  <div class="top-bar">
+    <div class="header-content">
+      <div class="logo">
+        <img src="https://i.postimg.cc/qz7tn0sJ/mobek-logo.png" alt="MOBEK MEDIA Logo">
+        <div class="logo-text">MOBEK <span>MEDIA</span></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- شريط التقدم -->
+  <div class="progress-container">
+    <div class="progress-bar" style="width: 25%"></div>
+  </div>
+  
+  <div class="step-indicator">الخطوة 1 من 4</div>
+  
+  <div class="container">
+    <div class="content">
+      <h1>👋 مرحبًا بك في <span class="brand">MOBEK MEDIA</span>!</h1>
+      <p>نحن متحمسون لمساعدتك في تطوير أعمال المطابخ من خلال إعلانات عالية الأداء. ستوجهك رحلة الإعداد هذه خلال كل ما تحتاجه للبدء - دون أي متاعب.</p>
+      
+      <div class="card">
+        <h2>🔍 ما يمكن توقعه</h2>
+        <p>إليك ما سنقوم به لك:</p>
+        <ul>
+          <li>✅ إطلاق وإدارة حملاتك على <strong>Meta (Facebook & Instagram)</strong>.</li>
+          <li>✅ تحسين الأداء يوميًا لتقليل التكاليف وزيادة العملاء المحتملين.</li>
+          <li>✅ إبقاؤك على اطلاع مع رؤى وتقارير منتظمة.</li>
+        </ul>
+        <p>هدفنا بسيط: تحويل ميزانية إعلاناتك إلى عملاء محتملين لتجديد المطابخ - بدون تعقيد.</p>
+      </div>
+      
+      <div class="card">
+        <h2>📬 التواصل</h2>
+        <p>نحن نبقى على اتصال مستمر حتى تكون على اطلاع دائم:</p>
+        <ul>
+          <li>🎥 <strong>فيديوهان Loom في الأسبوع</strong> يظهران التقدم والتحديثات والخطوات التالية.</li>
+          <li>📊 <strong>تقرير أداء أسبوعي</strong> في نهاية كل أسبوع.</li>
+          <li>📞 <strong>مكالمة Zoom أسبوعية اختيارية</strong> - يمكنك جدولتها في أي وقت لمراجعة النتائج أو طرح الأسئلة.</li>
+        </ul>
+        <p>الشفافية والاتساق هما المفتاح - وأنت دائمًا المسيطر.</p>
+      </div>
+      
+      <div class="card">
+        <h2>🚀 عملية الإعداد</h2>
+        <p>هذه العملية تستغرق بضع دقائق فقط. ستقوم بـ:</p>
+        <ol>
+          <li>1️⃣ منحنا حق الوصول إلى حسابات الإعلانات المطلوبة.</li>
+          <li>2️⃣ الإجابة على 2-3 أسئلة حول جمهورك وأهدافك.</li>
+          <li>3️⃣ تأكيد التفاصيل الرئيسية حتى نتمكن من الانطلاق بسلاسة.</li>
+        </ol>
+        <p>سترى تقدمك أثناء تقدمك. كل شيء سريع وموجه!</p>
+      </div>
+      
+      <a href="access.html" class="btn">بدء الآن →</a>
+    </div>
+  </div>
+  
+  <!-- زر الدردشة الموحد -->
+  <div class="chat-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </div>
+  
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    document.querySelector('.chat-btn').addEventListener('click', function() {
+      Tawk_API.toggle();
+    });
+    
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/688393fc8beeee192b5d57c/1hsjguvfr';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+</body>
+</html>
+
+<!-- ======= PAGE 2: حقوق الوصول ======= -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إعداد الوصول | MOBEK MEDIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .content {
+      padding: 30px 0;
+    }
+    
+    h1 {
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    
+    .step-indicator {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    
+    .copy-input {
+      width: 100%;
+      max-width: 300px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .copy-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .copy-btn:hover {
+      background: var(--primary-dark);
+    }
+    
+    .step-link {
+      display: inline-block;
+      margin: 10px 5px 0 0;
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .step-link:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .video-btn {
+      margin-top: 8px;
+      background: #444;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .video-btn:hover {
+      background: #333;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    
+    .nav-buttons a {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-buttons a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 700px;
+      position: relative;
+    }
+    
+    .popup-content iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      background: var(--primary);
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 5px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    
+    .platform-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي مع اللوجو -->
+  <div class="top-bar">
+    <div class="header-content">
+      <div class="logo">
+        <img src="https://i.postimg.cc/qz7tn0sJ/mobek-logo.png" alt="MOBEK MEDIA Logo">
+        <div class="logo-text">MOBEK <span>MEDIA</span></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- شريط التقدم -->
+  <div class="progress-container">
+    <div class="progress-bar" style="width: 50%"></div>
+  </div>
+  
+  <div class="step-indicator">الخطوة 2 من 4</div>
+  
+  <div class="container">
+    <div class="content">
+      <h1>منحنا حق الوصول في بضع خطوات فقط</h1>
+      
+      <!-- وصول Meta -->
+      <div class="card">
+        <h2>وصول Meta</h2>
+        
+        <!-- الخطوة 1 -->
+        <p><strong>1. أضفنا إلى Business Manager:</strong></p>
+        <input id="metaID" class="copy-input" value="123456789012345" readonly>
+        <button class="copy-btn" onclick="copyToClipboard('metaID')">📋 نسخ المعرف</button><br>
+        <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank">الذهاب إلى Business Manager</a>
+        <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/business-manager-guide')">📺 شرح الفيديو</button>
+        
+        <!-- الخطوة 2 -->
+        <p style="margin-top: 25px;"><strong>2. منح حق الوصول إلى صفحة Facebook:</strong></p>
+        <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank">إعدادات الصفحة</a>
+        <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/page-access-guide')">📺 شرح الفيديو</button>
+        
+        <!-- الخطوة 3 -->
+        <p style="margin-top: 25px;"><strong>3. منح حق الوصول إلى حساب الإعلانات:</strong></p>
+        <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank">إعدادات حساب الإعلانات</a>
+        <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/ad-account-access')">📺 شرح الفيديو</button>
+        
+        <!-- الخطوة 4 -->
+        <p style="margin-top: 25px;"><strong>4. وصول Pixel:</strong></p>
+        <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank">الذهاب إلى Events Manager</a>
+        <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/pixel-guide')">📺 إعداد Pixel</button>
+      </div>
+      
+      <!-- وصول الموقع -->
+      <div class="card">
+        <h2>الموقع وصفحات الهبوط</h2>
+        <p>يرجى منحنا حق الوصول إلى موقعك أو منصة صفحات الهبوط.</p>
+        <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/website-access-guide')">📺 شرح وصول الموقع</button>
+        
+        <p><strong>اختر منصتك:</strong></p>
+        <div class="platform-links">
+          <a class="step-link" href="https://wordpress.com/" target="_blank">WordPress</a>
+          <a class="step-link" href="https://webflow.com/dashboard" target="_blank">Webflow</a>
+          <a class="step-link" href="https://unbounce.com/" target="_blank">Unbounce</a>
+          <a class="step-link" href="https://www.wix.com/dashboard" target="_blank">Wix</a>
+          <a class="step-link" href="https://www.shopify.com/admin" target="_blank">Shopify</a>
+        </div>
+        
+        <p style="margin-top: 15px;">بدلاً من ذلك، يمكنك إرسال تفاصيل الوصول إلى:</p>
+        <strong>akram@mobekmedia.site</strong>
+      </div>
+      
+      <!-- أزرار التنقل -->
+      <div class="nav-buttons">
+        <a href="index.html">← السابق</a>
+        <a href="audience.html">التالي →</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- زر الدردشة الموحد -->
+  <div class="chat-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </div>
+  
+  <!-- نافذة الفيديو المنبثقة -->
+  <div id="videoPopup" class="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closePopup()">✕</button>
+      <iframe id="popupFrame" src="" allowfullscreen></iframe>
+    </div>
+  </div>
+  
+  <script>
+    function copyToClipboard(id) {
+      const copyText = document.getElementById(id);
+      navigator.clipboard.writeText(copyText.value);
+      alert("تم نسخ المعرف: " + copyText.value);
+    }
+    
+    function openPopup(url) {
+      const popup = document.getElementById('videoPopup');
+      const frame = document.getElementById('popupFrame');
+      frame.src = url;
+      popup.style.display = 'flex';
+    }
+    
+    function closePopup() {
+      const popup = document.getElementById('videoPopup');
+      const frame = document.getElementById('popupFrame');
+      frame.src = '';
+      popup.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+
+<!-- ======= PAGE 3: استطلاع الجمهور ======= -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>استطلاع الجمهور | MOBEK MEDIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .content {
+      padding: 30px 0;
+    }
+    
+    .step-indicator {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    
+    .survey-box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    
+    h1 {
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    
+    label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+    
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 1rem;
+      resize: vertical;
+      min-height: 120px;
+      margin-bottom: 25px;
+    }
+    
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(227, 173, 85, 0.2);
+    }
+    
+    .submit-btn {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 30px auto 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(227, 173, 85, 0.3);
+    }
+    
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    
+    .nav-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي مع اللوجو -->
+  <div class="top-bar">
+    <div class="header-content">
+      <div class="logo">
+        <img src="https://i.postimg.cc/qz7tn0sJ/mobek-logo.png" alt="MOBEK MEDIA Logo">
+        <div class="logo-text">MOBEK <span>MEDIA</span></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- شريط التقدم -->
+  <div class="progress-container">
+    <div class="progress-bar" style="width: 75%"></div>
+  </div>
+  
+  <div class="step-indicator">الخطوة 3 من 4</div>
+  
+  <div class="container">
+    <div class="content">
+      <div class="survey-box">
+        <h1>🎯 جمهورك المثالي</h1>
+        <p class="subtitle">ساعدنا في فهم من يجب أن نستهدفه في إعلاناتك للحصول على نتائج أفضل.</p>
+        
+        <form action="https://formspree.io/f/xanbqzjl" method="POST">
+          <!-- السؤال 1 -->
+          <div>
+            <label for="ideal-client">1. صف عميلك المثالي</label>
+            <textarea id="ideal-client" name="ideal-client" placeholder="مثال: مالكو المنازل الجدد الذين يهتمون بالجودة والتصميم..."></textarea>
+          </div>
+          
+          <!-- السؤال 2 -->
+          <div>
+            <label for="not-ideal-client">2. من ليس العميل المناسب لك؟</label>
+            <textarea id="not-ideal-client" name="not-ideal-client" placeholder="مثال: شخص يبحث عن أرخص خيار في عجلة من أمره..."></textarea>
+          </div>
+          
+          <!-- السؤال 3 -->
+          <div>
+            <label for="common-traits">3. ما السمات المشتركة بين عملائك الحاليين؟</label>
+            <textarea id="common-traits" name="common-traits" placeholder="مثال: يأتون من الإحالات، يفضلون الجودة، يعيشون في الضواحي..."></textarea>
+          </div>
+          
+          <!-- زر الإرسال -->
+          <button type="submit" class="submit-btn">إرسال الإجابات</button>
+        </form>
+      </div>
+      
+      <!-- أزرار التنقل -->
+      <div class="nav-buttons">
+        <a href="access.html" class="nav-btn">← رجوع</a>
+        <a href="expectations.html" class="nav-btn">التالي →</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- زر الدردشة الموحد -->
+  <div class="chat-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </div>
+  
+  <!-- Tawk.to -->
+  <script type="text/javascript">
+    document.querySelector('.chat-btn').addEventListener('click', function() {
+      Tawk_API.toggle();
+    });
+    
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/688393fc8beeee192b5d57c/1htgk6qbg';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
+
+<!-- ======= PAGE 4: المكالمة الاستراتيجية ======= -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حجز المكالمة الاستراتيجية | MOBEK MEDIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #fdf8e8, #fffaf0);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .container {
+      max-width: 700px;
+      width: 100%;
+      padding: 0 20px;
+    }
+    
+    .content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    
+    .step-indicator {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    h1 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+    
+    .description {
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    
+    .calendly-container {
+      margin: 30px 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .email-form {
+      margin-top: 30px;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    input[type="email"] {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+    
+    input[type="email"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(227, 173, 85, 0.2);
+    }
+    
+    .finish-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+      margin: 20px auto;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+    
+    .finish-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(227, 173, 85, 0.3);
+    }
+    
+    .note {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <!-- الشريط العلوي مع اللوجو -->
+  <div class="top-bar">
+    <div class="header-content">
+      <div class="logo">
+        <img src="https://i.postimg.cc/qz7tn0sJ/mobek-logo.png" alt="MOBEK MEDIA Logo">
+        <div class="logo-text">MOBEK <span>MEDIA</span></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- شريط التقدم -->
+  <div class="progress-container" style="max-width: 700px; margin: 20px auto">
+    <div class="progress-bar" style="width: 100%"></div>
+  </div>
+  
+  <div class="step-indicator">الخطوة 4 من 4</div>
+  
+  <div class="container">
+    <div class="content">
+      <h1>📞 الخطوة 4: احجز مكالمتك الاستراتيجية</h1>
+      <p class="description">دعنا نناقش أهدافك ونتأكد من أن كل شيء جاهز للإطلاق!</p>
+      
+      <!-- Calendly iframe -->
+      <div class="calendly-container">
+        <iframe src="https://calendly.com/extramoumen/strategy-session" style="width:100%; height:500px; border:none;"></iframe>
+      </div>
+      
+      <!-- نموذج البريد الإلكتروني -->
+      <form id="finalForm" class="email-form">
+        <div class="form-group">
+          <label for="email">بريدك الإلكتروني</label>
+          <input type="email" name="email" id="email" required placeholder="you@example.com">
+        </div>
+        
+        <button type="submit" class="finish-btn">إنهاء الإعداد</button>
+      </form>
+      
+      <p class="note">ستستلم دعوات Slack وClickUp على هذا البريد الإلكتروني.</p>
+    </div>
+  </div>
+  
+  <!-- زر الدردشة الموحد -->
+  <div class="chat-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </div>
+  
+  <script>
+    document.getElementById("finalForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById("email").value;
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxpPQihYzSLjXcfgCnu-iOyFWU6aFkwPkF708lXi892KZ2e26U7oD7L_LCMPcKmQ0at/exec";
+      
+      fetch(scriptURL, {
+        method: "POST",
+        body: new URLSearchParams({ "email": email })
+      })
+      .then(response => {
+        window.location.href = "thankyou.html";
+      })
+      .catch(error => {
+        alert("حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.");
+        console.error("Error!", error.message);
+      });
+    });
+  </script>
+  
+  <!-- Tawk.to -->
+  <script type="text/javascript">
+    document.querySelector('.chat-btn').addEventListener('click', function() {
+      Tawk_API.toggle();
+    });
+    
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/688393fc8beeee192b5d57c/1htgk6qbg';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
+
+<!-- ======= PAGE 5: شكرًا ======= -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تم الإعداد بنجاح | MOBEK MEDIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #fdf8e8, #fffaf0);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .success-box {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      margin: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .success-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    }
+    
+    .icon {
+      font-size: 5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      animation: bounce 1.5s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    h1 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+    
+    p {
+      color: #555;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .progress-bar {
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      border-radius: 4px;
+      margin: 30px 0;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .note {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-box">
+    <div class="icon">✅</div>
+    <h1>اكتمل الإعداد بنجاح!</h1>
+    
+    <p>شكرًا لإكمال عملية الإعداد مع <span class="highlight">MOBEK MEDIA</span>!</p>
+    
+    <p>نحن الآن نراجع تفاصيلك وسنتواصل معك عبر <span class="highlight">Slack</span> و <span class="highlight">ClickUp</span>.</p>
+    
+    <p class="highlight">استعد! 🚀 حملتك على وشك الإطلاق ✨</p>
+    
+    <div class="progress-bar"></div>
+    
+    <p class="note">يمكنك إغلاق هذه الصفحة الآن. لا يلزم اتخاذ أي إجراء آخر.</p>
+  </div>
+  
+  <!-- زر الدردشة الموحد -->
+  <div class="chat-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </div>
+  
+  <!-- Tawk.to -->
+  <script type="text/javascript">
+    document.querySelector('.chat-btn').addEventListener('click', function() {
+      Tawk_API.toggle();
+    });
+    
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/688393fc8beeee192b5d57c/1htgk6qbg';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
