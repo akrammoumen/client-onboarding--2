@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audience Survey | MOBEK MEDIA</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --mobek-gold: #e3ad55;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 min-h-screen flex items-center justify-center p-6">
+    <div class="absolute top-4 left-0 w-full px-4">
+      <!-- ✅ Progress Bar -->
+      <div class="w-full max-w-3xl mx-auto">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 50%"></div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-600 mt-1">
+          <span>Step 2 of 4</span>
+          <span>Audience</span>
+        </div>
+      </div>
+    </div>
 
+    <div class="max-w-3xl w-full bg-white p-8 rounded-2xl shadow-xl border border-gray-200 mt-16">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">🎯 Your Ideal Audience</h1>
+      <p class="text-center mb-8 text-gray-600">Help us understand who we should target in your ads for better results.</p>
+
+      <form action="https://formspree.io/f/xanbqzjl" method="POST" class="space-y-6">
+        <!-- Question 1 -->
+        <div>
+          <label for="ideal-client" class="block text-lg font-semibold mb-2 text-gray-800">
+            1. Describe your ideal client
+          </label>
+          <textarea id="ideal-client" name="ideal-client" rows="4" class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-yellow-400 focus:outline-none" placeholder="Example: New homeowners who care about quality and design..."></textarea>
+        </div>
+
+        <!-- Question 2 -->
+        <div>
+          <label for="not-ideal-client" class="block text-lg font-semibold mb-2 text-gray-800">
+            2. Who is not the right client for you?
+          </label>
+          <textarea id="not-ideal-client" name="not-ideal-client" rows="4" class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-yellow-400 focus:outline-none" placeholder="Example: Someone looking for the cheapest option in a rush..."></textarea>
+        </div>
+
+        <!-- Question 3 -->
+        <div>
+          <label for="common-traits" class="block text-lg font-semibold mb-2 text-gray-800">
+            3. What traits do your current clients have in common?
+          </label>
+          <textarea id="common-traits" name="common-traits" rows="4" class="w-full p-4 border rounded-xl focus:ring-2 focus:ring-yellow-400 focus:outline-none" placeholder="Example: They come from referrals, prefer quality, live in suburbs..."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center pt-4">
+          <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition">
+            Submit Answers
+          </button>
+        </div>
+      </form>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between items-center mt-8">
+        <a href="access.html" class="text-white bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-xl font-semibold shadow transition">
+          Back
+        </a>
+        <a href="expectations.html" class="text-white bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-xl font-semibold shadow transition">
+          Next
+        </a>
+      </div>
+    </div>
+
+    <!-- 🔁 Google Sheets Progress Tracking -->
+    <iframe src="https://script.google.com/macros/s/AKfycbxpPQihYzSLjXcfgCnu-iOyFWU6aFkwPkF708lXi892KZ2e26U7oD7L_LCMPcKmQ0at/exec?page=audience" style="display: none;"></iframe>
+
+    <!-- 💬 Tawk.to Chat Bubble -->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/688393fc8beeee192b5d57c/1htgk6qbg';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+  </body>
+</html>
