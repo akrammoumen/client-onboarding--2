@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Thank You | MOBEK MEDIA</title>  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  
+  <script src="https://cdn.tailwindcss.com"></script>  
+  <style>  
+    :root {  
+      --mobek-gold: #e3ad55;  
+    }  
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }  
+      100% { transform: scale(1); opacity: 1; }  
+    }  
 
+    .animate-pop {  
+      animation: pop 0.6s ease-out forwards;  
+    }  
+
+    .glow {  
+      box-shadow: 0 0 15px rgba(227, 173, 85, 0.5);  
+    }
+  </style>  
+</head>  
+<body class="bg-gradient-to-br from-yellow-50 to-white flex flex-col min-h-screen p-6">  
+  <div class="max-w-xl w-full bg-white p-10 rounded-2xl shadow-2xl text-center space-y-6 border border-gray-200 animate-pop mx-auto">  
+    <!-- Progress Bar -->
+    <div class="flex justify-between items-center mb-6">
+      <div class="w-full bg-gray-200 rounded-full h-2">
+        <div class="bg-yellow-500 h-2 rounded-full" style="width: 100%"></div>
+      </div>
+      <span class="ml-4 text-sm font-semibold text-yellow-600">Step 4 of 4</span>
+    </div>
+
+    <!-- Page Title -->
+    <h1 class="text-3xl font-bold text-yellow-600">✅ Setup Complete!</h1>  
+
+    <!-- Thank You Text -->  
+    <p class="text-lg text-gray-800 font-medium">  
+      Thank you for completing your onboarding with <span class="text-yellow-600 font-semibold">MOBEK MEDIA</span>!  
+    </p>  
+
+    <!-- Follow-up Info -->  
+    <p class="text-gray-600">  
+      We are now reviewing your details and will reach out via <span class="font-medium text-gray-800">Slack</span> and <span class="font-medium text-gray-800">ClickUp</span>.  
+    </p>  
+
+    <!-- Motivation Message -->  
+    <p class="text-gray-700 italic">  
+      Get ready! 🚀 Your campaign is about to launch ✨  
+    </p>  
+
+    <!-- Success Progress Bar -->  
+    <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden mt-4 shadow-inner">  
+      <div class="h-full bg-yellow-500 w-full animate-pulse"></div>  
+    </div>  
+
+    <!-- Final Note -->  
+    <p class="text-sm text-gray-400 pt-4">📌 You can close this page now. No further action is needed.</p>
+
+    <!-- Navigation Button -->
+    <div class="pt-6">
+      <a href="expectations.html" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-semibold py-2 px-4 rounded-xl transition">← Previous Step</a>
+    </div>
+
+  </div>  
+
+  <!-- Tawk.to chat bubble -->  
+  <script type="text/javascript">  
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();  
+    (function(){  
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];  
+      s1.async=true;  
+      s1.src='https://embed.tawk.to/688393fc8beeee192b5d57c/1htgk6qbg';  
+      s1.charset='UTF-8';  
+      s1.setAttribute('crossorigin','*');  
+      s0.parentNode.insertBefore(s1,s0);  
+    })();  
+  </script>  
+</body>  
+</html>
