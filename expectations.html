@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Step 4: Book Your Strategy Call | MOBEK MEDIA</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --mobek-gold: #e3ad55;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-xl w-full bg-white p-10 rounded-2xl shadow-lg text-center space-y-6 relative">
 
+    <!-- Progress Bar -->
+    <div class="absolute top-0 left-0 w-full bg-gray-200 h-2 rounded-t-2xl overflow-hidden">
+      <div class="bg-yellow-500 h-full w-[100%] transition-all duration-500"></div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-3xl font-bold text-yellow-600 pt-4">📞 Step 4: Book Your Strategy Call</h1>
+    <p class="text-gray-700">Let's discuss your goals and make sure everything is ready to launch!</p>
+
+    <!-- Calendly iframe -->
+    <iframe src="https://calendly.com/extramoumen/strategy-session" class="w-full h-96 rounded-xl shadow" frameborder="0"></iframe>
+
+    <!-- Email submission form -->
+    <form id="finalForm" class="space-y-4">
+      <div>
+        <label for="email" class="block mb-2 text-sm font-semibold text-gray-800">Your Email</label>
+        <input type="email" name="email" id="email" required placeholder="you@example.com"
+          class="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+      </div>
+      <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-xl transition shadow-md">
+        Finish Setup
+      </button>
+    </form>
+
+    <p class="text-sm text-gray-400">You'll receive Slack & ClickUp invites at this email.</p>
+
+  </div>
+
+  <!-- Form submission + redirect -->
+  <script>
+    document.getElementById("finalForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxpPQihYzSLjXcfgCnu-iOyFWU6aFkwPkF708lXi892KZ2e26U7oD7L_LCMPcKmQ0at/exec";
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: new URLSearchParams({ "email": email })
+      })
+      .then(response => {
+        window.location.href = "thankyou.html";
+      })
+      .catch(error => {
+        alert("There was an error submitting the form. Please try again.");
+        console.error("Error!", error.message);
+      });
+    });
+  </script>
+
+  <!-- Tawk.to chat bubble -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/688393fc8beeee192b5d57c/1htgk6qbg';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
