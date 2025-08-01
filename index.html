@@ -4,33 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome – MOBEK MEDIA</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #e3ad55;
-      --primary-dark: #d89b3f;
-      --secondary: #2c3e50;
+      --gold: #e3ad55;
+      --gold-light: #f0c87c;
+      --gold-dark: #c9973f;
+      --dark: #2c3e50;
       --light: #f8f9fa;
-      --dark: #1a1a1a;
       --white: #ffffff;
-      --shadow: 0 4px 12px rgba(0,0,0,0.07);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
     
     body {
-      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fdfdfc;
-      color: var(--dark);
+      color: #1a1a1a;
       padding: 2rem;
       max-width: 900px;
       margin: auto;
       position: relative;
-      padding-top: 120px;
+      padding-top: 100px;
       padding-bottom: 100px;
     }
     
@@ -39,129 +32,86 @@
       position: fixed;
       top: 20px;
       left: 20px;
-      height: 50px;
+      height: 45px;
       z-index: 1000;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
     }
     
-    /* Progress Bar */
-    .progress-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(to right, var(--secondary), #34495e);
-      padding: 15px 10%;
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      z-index: 999;
-    }
-    
-    .progress-steps {
-      display: flex;
-      justify-content: space-between;
-      padding: 0;
-      margin-bottom: 10px;
-    }
-    
-    .step {
-      list-style: none;
-      font-size: 0.9rem;
-      color: #a0a0a0;
-      position: relative;
-      text-align: center;
-      flex: 1;
-    }
-    
-    .step:before {
-      content: "";
-      display: block;
-      width: 24px;
-      height: 24px;
-      background-color: #4a5d71;
-      border-radius: 50%;
-      margin: 0 auto 8px;
-      z-index: 2;
-      position: relative;
-    }
-    
-    .step.active:before {
-      background: var(--primary);
-      box-shadow: 0 0 0 4px rgba(227, 173, 85, 0.2);
-    }
-    
-    .step.active {
-      color: var(--white);
-      font-weight: 600;
-    }
-    
-    .progress-bar {
-      height: 8px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 10px;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(to right, var(--primary), #ffcc70);
-      border-radius: 4px;
-      transition: width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      width: 0%;
-    }
-    
-    /* Chat Button */
-    .chat-button {
+    /* Floating Chat Button */
+    .chat-floating {
       position: fixed;
       bottom: 25px;
       right: 25px;
+      z-index: 1000;
+    }
+    
+    .chat-button {
+      background: var(--gold);
+      border-radius: 50%;
       width: 60px;
       height: 60px;
-      background: var(--primary);
-      border-radius: 50%;
+      border: none;
+      box-shadow: var(--shadow);
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 6px 15px rgba(227, 173, 85, 0.4);
-      cursor: pointer;
-      z-index: 1000;
       transition: all 0.3s ease;
+      animation: pulse 2s infinite;
     }
     
     .chat-button:hover {
-      transform: scale(1.1);
-      background: var(--primary-dark);
-      box-shadow: 0 8px 20px rgba(227, 173, 85, 0.5);
+      background: var(--gold-dark);
+      transform: scale(1.05);
     }
     
-    .chat-icon {
-      color: white;
-      font-size: 24px;
+    .chat-button svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
     }
     
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(227, 173, 85, 0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(227, 173, 85, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(227, 173, 85, 0); }
+    }
+    
+    /* Header Styles */
     .brand {
-      color: var(--primary);
+      color: var(--gold);
       font-weight: bold;
     }
     
     h1 {
       font-size: 2.5rem;
       margin-bottom: 0.75rem;
-      color: var(--secondary);
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h1:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+      border-radius: 2px;
     }
     
     p {
       font-size: 1.1rem;
       line-height: 1.7;
-      margin-bottom: 1.2rem;
-      color: #444;
+      color: #333;
     }
     
+    /* Card Styles */
     .card {
       background-color: var(--white);
-      border-left: 6px solid var(--primary);
-      border-radius: 16px;
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
       padding: 1.75rem;
       margin: 2rem 0;
       box-shadow: var(--shadow);
@@ -170,14 +120,12 @@
     
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     
     .card h2 {
       margin-top: 0;
-      color: var(--secondary);
+      color: #333;
       font-size: 1.5rem;
-      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -185,22 +133,26 @@
     
     ul, ol {
       padding-left: 1.25rem;
-      margin-bottom: 1.5rem;
     }
     
     li {
-      margin-bottom: 0.8rem;
+      margin-bottom: 10px;
       line-height: 1.6;
     }
     
+    li strong {
+      color: var(--gold);
+    }
+    
     .highlight {
-      color: var(--primary);
+      color: var(--gold);
       font-weight: 600;
     }
     
+    /* Button Styles */
     .btn {
       display: inline-block;
-      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
       color: white;
       font-weight: bold;
       padding: 0.9rem 1.75rem;
@@ -208,64 +160,33 @@
       border-radius: 10px;
       text-decoration: none;
       font-size: 1.1rem;
-      margin-top: 1rem;
-      box-shadow: 0 4px 12px rgba(227, 173, 85, 0.3);
+      margin-top: 2rem;
+      box-shadow: var(--shadow);
       transition: all 0.3s ease;
-      cursor: pointer;
       position: relative;
       overflow: hidden;
     }
     
     .btn:hover {
+      background: linear-gradient(to right, var(--gold-dark), var(--gold));
       transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(227, 173, 85, 0.4);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     }
     
     .btn:after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: rgba(255, 255, 255, 0.1);
-      transform: rotate(30deg);
-      transition: all 0.6s ease;
+      content: '→';
+      margin-left: 10px;
+      transition: transform 0.3s ease;
     }
     
     .btn:hover:after {
-      transform: rotate(30deg) translate(10%, 10%);
-    }
-    
-    .card-icon {
-      background: rgba(227, 173, 85, 0.15);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
+      transform: translateX(5px);
     }
     
     /* Responsive Design */
     @media (max-width: 768px) {
       body {
-        padding: 1rem;
-        padding-top: 100px;
-      }
-      
-      .progress-container {
-        padding: 12px 5%;
-      }
-      
-      .step {
-        font-size: 0.75rem;
-      }
-      
-      .step:before {
-        width: 18px;
-        height: 18px;
+        padding: 80px 1.5rem 100px;
       }
       
       h1 {
@@ -273,36 +194,19 @@
       }
       
       .card {
-        padding: 1.5rem;
+        padding: 1.25rem;
       }
       
       .agency-logo {
-        height: 40px;
-        left: 15px;
+        height: 35px;
         top: 15px;
+        left: 15px;
       }
       
       .chat-button {
         width: 50px;
         height: 50px;
-        bottom: 20px;
-        right: 20px;
       }
-      
-      .chat-icon {
-        font-size: 20px;
-      }
-    }
-    
-    /* Animation for progress bar */
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(227, 173, 85, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(227, 173, 85, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(227, 173, 85, 0); }
-    }
-    
-    .step.active:before {
-      animation: pulse 2s infinite;
     }
   </style>
 </head>
@@ -310,31 +214,12 @@
   <!-- Agency Logo -->
   <img src="https://i.imgur.com/7nLmM5p.png" alt="MOBEK MEDIA Logo" class="agency-logo">
   
-  <!-- Progress Bar -->
-  <div class="progress-container">
-    <ul class="progress-steps">
-      <li class="step active">Welcome</li>
-      <li class="step">Access Rights</li>
-      <li class="step">Audience Survey</li>
-      <li class="step">Strategy Call</li>
-      <li class="step">Thank You</li>
-    </ul>
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-  </div>
-  
-  <!-- Chat Button -->
-  <div class="chat-button" id="chatButton">
-    <i class="fas fa-comment-dots chat-icon"></i>
-  </div>
-
   <h1>👋 Welcome to <span class="brand">MOBEK MEDIA</span>!</h1>
-  <p>We're excited to help your kitchen business grow through high-performing paid ads. This setup journey will guide you through everything you need to get started—with zero hassle.</p>
+  <p>We’re excited to help your kitchen business grow through high-performing paid ads. This setup journey will guide you through everything you need to get started—with zero hassle.</p>
 
   <div class="card">
-    <h2><span class="card-icon"><i class="fas fa-search"></i></span> What to Expect</h2>
-    <p>Here's what we'll handle for you:</p>
+    <h2>🔍 What to Expect</h2>
+    <p>Here’s what we’ll handle for you:</p>
     <ul>
       <li>✅ Launch and manage your campaigns on <strong>Meta (Facebook & Instagram)</strong>.</li>
       <li>✅ Optimize performance daily to reduce costs and increase leads.</li>
@@ -344,7 +229,7 @@
   </div>
 
   <div class="card">
-    <h2><span class="card-icon"><i class="fas fa-envelope"></i></span> Communication</h2>
+    <h2>📬 Communication</h2>
     <p>We stay in touch consistently so you're always informed:</p>
     <ul>
       <li>🎥 <strong>Two Loom videos per week</strong> showing progress, updates, and next steps.</li>
@@ -355,17 +240,26 @@
   </div>
 
   <div class="card">
-    <h2><span class="card-icon"><i class="fas fa-rocket"></i></span> Setup Process</h2>
-    <p>This onboarding takes just a few minutes. You'll:</p>
+    <h2>🚀 Setup Process</h2>
+    <p>This onboarding takes just a few minutes. You’ll:</p>
     <ol>
       <li>1️⃣ Grant us access to the needed ad accounts.</li>
       <li>2️⃣ Answer 2–3 questions about your audience & goals.</li>
       <li>3️⃣ Confirm key details so we can launch smoothly.</li>
     </ol>
-    <p>You'll see your progress as you go. Everything is fast and guided!</p>
+    <p>You’ll see your progress as you go. Everything is fast and guided!</p>
   </div>
 
-  <a href="access.html" class="btn">Get Started →</a>
+  <a href="access.html" class="btn">Get Started</a>
+  
+  <!-- Floating Chat Button -->
+  <div class="chat-floating">
+    <button class="chat-button" onclick="Tawk_API.toggle()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+      </svg>
+    </button>
+  </div>
 
   <!-- Tawk.to Live Chat -->
   <script type="text/javascript">
@@ -378,16 +272,6 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
-    
-    // Add event listener to chat button
-    document.getElementById('chatButton').addEventListener('click', function() {
-      Tawk_API.toggle();
-    });
-    
-    // Initialize progress bar
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('.progress-fill').style.width = "0%";
-    });
   </script>
 </body>
 </html>
