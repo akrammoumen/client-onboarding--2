@@ -1,1 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Access Setup - MOBEK MEDIA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --gold-primary: #e3ad55;
+      --gold-secondary: #d89b3f;
+      --deep-teal: #1a5f7a;
+      --light-teal: #2d8da8;
+      --dark-charcoal: #1f2937;
+      --light-cream: #f8f5f0;
+      --pure-white: #ffffff;
+      --soft-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --success-green: #2ecc71;
+      --error-red: #e74c3c;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background-color: var(--light-cream);
+      color: var(--dark-charcoal);
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      padding-top: 180px;
+      padding-bottom: 100px;
+      line-height: 1.6;
+    }
+    
+    /* Agency header */
+    .agency-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      padding: 15px 5%;
+      z-index: 1000;
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .agency-logo {
+      height: 45px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    
+    .agency-name {
+      color: var(--pure-white);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Progress bar */
+    .progress-container {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      padding: 20px 5%;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    
+    .step {
+      list-style: none;
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      position: relative;
+      flex: 1;
+    }
+    
+    .step.active {
+      color: var(--pure-white);
+      font-weight: bold;
+    }
+    
+    .step::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.3);
+      border: 2px solid var(--pure-white);
+      z-index: 2;
+    }
+    
+    .step.active::before {
+      background: linear-gradient(135deg, var(--gold-primary), var(--light-teal));
+      border: 2px solid var(--pure-white);
+    }
+    
+    .progress-bar {
+      position: absolute;
+      top: 40px;
+      left: 5%;
+      width: 90%;
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--gold-primary), var(--light-teal));
+      border-radius: 4px;
+      width: 40%; /* Step 2 of 5: 40% */
+      transition: width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--deep-teal);
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .card {
+      background-color: var(--pure-white);
+      border-left: 6px solid var(--gold-primary);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    
+    .card h2 {
+      margin-top: 0;
+      color: var(--deep-teal);
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 1.2rem 0;
+    }
+    
+    li {
+      margin-bottom: 0.9rem;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+    
+    .highlight {
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+    
+    /* Copy input styles */
+    .input-group {
+      display: flex;
+      margin: 15px 0;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .copy-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #fafafa;
+      color: var(--dark-charcoal);
+    }
+    
+    .copy-btn {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--pure-white);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .copy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(227, 173, 85, 0.4);
+    }
+    
+    .step-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      background: linear-gradient(135deg, var(--light-teal), var(--deep-teal));
+      color: var(--pure-white);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .step-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(42, 128, 161, 0.4);
+    }
+    
+    .video-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      background: linear-gradient(135deg, #555, #333);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .video-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .platform-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 15px 0;
+    }
+    
+    /* Navigation buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    
+    .nav-btn {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--pure-white);
+      border: none;
+      padding: 14px 30px;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(227, 173, 85, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .nav-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(227, 173, 85, 0.4);
+    }
+    
+    .nav-btn.back {
+      background: linear-gradient(135deg, var(--light-teal), var(--deep-teal));
+    }
+    
+    /* Chat button */
+    .chat-floating {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+    
+    .chat-button {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      border: none;
+      box-shadow: 0 8px 20px rgba(227, 173, 85, 0.45);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      color: white;
+      font-size: 1.9rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .chat-button:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 25px rgba(227, 173, 85, 0.65);
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(227, 173, 85, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0);
+      }
+    }
+    
+    /* Popup styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; 
+      left: 0;
+      width: 100vw; 
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    
+    .popup-content {
+      background: var(--pure-white);
+      padding: 20px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 900px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    .popup-content iframe {
+      width: 100%;
+      height: 500px;
+      border-radius: 10px;
+      border: none;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      border: none;
+      color: white;
+      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    
+    .close-btn:hover {
+      transform: rotate(90deg);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem;
+        padding-top: 160px;
+      }
+      
+      .agency-header {
+        padding: 12px 5%;
+      }
+      
+      .progress-container {
+        top: 70px;
+        padding: 15px 5%;
+      }
+      
+      .step::before {
+        top: -20px;
+        width: 20px;
+        height: 20px;
+      }
+      
+      .progress-bar {
+        top: 35px;
+      }
+      
+      .agency-logo {
+        height: 38px;
+      }
+      
+      .agency-name {
+        font-size: 1.3rem;
+      }
+      
+      h1 {
+        font-size: 1.9rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .card h2 {
+        font-size: 1.4rem;
+      }
+      
+      .chat-button {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+      }
+      
+      .nav-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
+      
+      .popup-content iframe {
+        height: 300px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .step {
+        font-size: 0.7rem;
+      }
+      
+      .step::before {
+        top: -18px;
+        width: 16px;
+        height: 16px;
+      }
+      
+      .progress-bar {
+        height: 6px;
+        top: 30px;
+      }
+      
+      .input-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .copy-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    
+    .success-message {
+      display: none;
+      background: var(--success-green);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      text-align: center;
+      animation: fadeIn 0.5s;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Agency header -->
+  <header class="agency-header">
+    <img src="https://i.imgur.com/7nLmM5p.png" alt="MOBEK MEDIA Logo" class="agency-logo">
+    <div class="agency-name">MOBEK MEDIA</div>
+  </header>
+  
+  <!-- Progress bar -->
+  <div class="progress-container">
+    <ul class="progress-steps">
+      <li class="step">Welcome</li>
+      <li class="step active">Access</li>
+      <li class="step">Audience</li>
+      <li class="step">Strategy</li>
+      <li class="step">Thank You</li>
+    </ul>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
 
+  <h1>Grant Us Access in Just a Few Steps</h1>
+
+  <!-- Meta Access -->
+  <div class="card">
+    <h2><i class="fab fa-facebook-square"></i> Meta Access</h2>
+
+    <!-- Step 1 -->
+    <p><strong>1. Add us to your Business Manager:</strong></p>
+    <div class="input-group">
+      <input id="metaID" class="copy-input" value="123456789012345" readonly>
+      <button class="copy-btn" onclick="copyToClipboard('metaID', 'copied-meta')">
+        <i class="far fa-copy"></i> Copy ID
+      </button>
+      <div id="copied-meta" class="success-message">Copied to clipboard!</div>
+    </div>
+    <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank">
+      <i class="fas fa-external-link-alt"></i> Go to Business Manager
+    </a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/business-manager-guide')">
+      <i class="fas fa-play-circle"></i> Watch Explanation
+    </button>
+
+    <!-- Step 2 -->
+    <p style="margin-top: 25px;"><strong>2. Grant access to your Facebook Page:</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank">
+      <i class="fas fa-cog"></i> Page Settings
+    </a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/page-access-guide')">
+      <i class="fas fa-play-circle"></i> Watch Explanation
+    </button>
+
+    <!-- Step 3 -->
+    <p style="margin-top: 25px;"><strong>3. Grant access to your Ad Account:</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank">
+      <i class="fas fa-ad"></i> Ad Account Settings
+    </a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/ad-account-access')">
+      <i class="fas fa-play-circle"></i> Watch Explanation
+    </button>
+
+    <!-- Step 4 -->
+    <p style="margin-top: 25px;"><strong>4. Pixel Access:</strong></p>
+    <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank">
+      <i class="fas fa-chart-line"></i> Go to Events Manager
+    </a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/pixel-guide')">
+      <i class="fas fa-play-circle"></i> Watch Pixel Setup
+    </button>
+  </div>
+
+  <!-- Website Access -->
+  <div class="card">
+    <h2><i class="fas fa-globe"></i> Website & Landing Pages</h2>
+    <p>Please grant us access to your website or landing page platform.</p>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/website-access-guide')">
+      <i class="fas fa-play-circle"></i> Watch Website Access Guide
+    </button>
+
+    <p><strong>Select your platform:</strong></p>
+    <div class="platform-links">
+      <a class="step-link" href="https://wordpress.com/" target="_blank">
+        <i class="fab fa-wordpress"></i> WordPress
+      </a>
+      <a class="step-link" href="https://webflow.com/dashboard" target="_blank">
+        <i class="fas fa-cube"></i> Webflow
+      </a>
+      <a class="step-link" href="https://unbounce.com/" target="_blank">
+        <i class="fas fa-layer-group"></i> Unbounce
+      </a>
+      <a class="step-link" href="https://www.wix.com/dashboard" target="_blank">
+        <i class="fas fa-paint-brush"></i> Wix
+      </a>
+      <a class="step-link" href="https://www.shopify.com/admin" target="_blank">
+        <i class="fas fa-shopping-cart"></i> Shopify
+      </a>
+    </div>
+
+    <p style="margin-top: 15px;">Alternatively, you can email access details to:</p>
+    <p><strong><i class="fas fa-envelope"></i> akram@mobekmedia.site</strong></p>
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="nav-buttons">
+    <a href="index.html" class="nav-btn back">
+      <i class="fas fa-arrow-left"></i> Previous
+    </a>
+    <a href="audience.html" class="nav-btn">
+      Next <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- Floating chat button -->
+  <div class="chat-floating">
+    <button class="chat-button">
+      <i class="fas fa-comment-dots"></i>
+    </button>
+  </div>
+
+  <!-- Video Popup -->
+  <div id="videoPopup" class="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closePopup()">✕</button>
+      <iframe id="popupFrame" src="" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/688393fc8beeee192b5d57c/1hsjguvfr';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+    
+    // Activate chat when button is clicked
+    document.querySelector('.chat-button').addEventListener('click', function() {
+      Tawk_API.toggle();
+    });
+    
+    // Copy to clipboard function
+    function copyToClipboard(id, messageId) {
+      const copyText = document.getElementById(id);
+      navigator.clipboard.writeText(copyText.value).then(() => {
+        const message = document.getElementById(messageId);
+        message.style.display = 'block';
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 2000);
+      });
+    }
+    
+    // Video popup functions
+    function openPopup(url) {
+      const popup = document.getElementById('videoPopup');
+      const frame = document.getElementById('popupFrame');
+      frame.src = url;
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closePopup() {
+      const popup = document.getElementById('videoPopup');
+      const frame = document.getElementById('popupFrame');
+      frame.src = '';
+      popup.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  </script>
+</body>
+</html>
