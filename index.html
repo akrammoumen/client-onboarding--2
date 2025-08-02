@@ -4,260 +4,407 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome – MOBEK MEDIA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     :root {
-      --gold: #e3ad55;
-      --gold-light: #f0c87c;
-      --gold-dark: #c9973f;
-      --dark: #2c3e50;
-      --light: #f8f9fa;
-      --white: #ffffff;
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --gold-primary: #e3ad55;
+      --gold-secondary: #d89b3f;
+      --deep-teal: #1a5f7a;
+      --light-teal: #2d8da8;
+      --dark-charcoal: #1f2937;
+      --light-cream: #f8f5f0;
+      --pure-white: #ffffff;
+      --soft-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
     
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdfdfc;
-      color: #1a1a1a;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background-color: var(--light-cream);
+      color: var(--dark-charcoal);
       padding: 2rem;
       max-width: 900px;
       margin: auto;
       position: relative;
       padding-top: 100px;
       padding-bottom: 100px;
+      line-height: 1.6;
     }
     
-    /* Agency Logo */
-    .agency-logo {
+    /* Agency header */
+    .agency-header {
       position: fixed;
-      top: 20px;
-      left: 20px;
-      height: 45px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      padding: 15px 5%;
       z-index: 1000;
-      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
-    }
-    
-    /* Floating Chat Button */
-    .chat-floating {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      z-index: 1000;
-    }
-    
-    .chat-button {
-      background: var(--gold);
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      border: none;
-      box-shadow: var(--shadow);
-      cursor: pointer;
+      box-shadow: var(--soft-shadow);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
     }
     
-    .chat-button:hover {
-      background: var(--gold-dark);
-      transform: scale(1.05);
+    .agency-logo {
+      height: 45px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
     
-    .chat-button svg {
-      width: 30px;
-      height: 30px;
-      fill: white;
+    .agency-name {
+      color: var(--pure-white);
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
     }
     
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(227, 173, 85, 0.6); }
-      70% { box-shadow: 0 0 0 12px rgba(227, 173, 85, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(227, 173, 85, 0); }
-    }
-    
-    /* Header Styles */
     .brand {
-      color: var(--gold);
-      font-weight: bold;
+      color: var(--gold-primary);
+      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-      position: relative;
-      padding-bottom: 15px;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--deep-teal);
+      text-align: center;
+      margin-top: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
     }
     
-    h1:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(to right, var(--gold), var(--gold-light));
-      border-radius: 2px;
+    .subtitle {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--light-teal);
+      font-weight: 400;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       line-height: 1.7;
-      color: #333;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--dark-charcoal);
     }
     
-    /* Card Styles */
     .card {
-      background-color: var(--white);
-      border-left: 4px solid var(--gold);
-      border-radius: 12px;
-      padding: 1.75rem;
-      margin: 2rem 0;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
+      background-color: var(--pure-white);
+      border-left: 6px solid var(--gold-primary);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
     }
     
     .card h2 {
       margin-top: 0;
-      color: #333;
-      font-size: 1.5rem;
+      color: var(--deep-teal);
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     
     ul, ol {
-      padding-left: 1.25rem;
+      padding-left: 1.5rem;
+      margin: 1.2rem 0;
     }
     
     li {
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-    
-    li strong {
-      color: var(--gold);
+      margin-bottom: 0.9rem;
+      line-height: 1.7;
+      font-size: 1.1rem;
     }
     
     .highlight {
-      color: var(--gold);
-      font-weight: 600;
+      color: var(--gold-primary);
+      font-weight: 700;
     }
     
-    /* Button Styles */
+    .btn-container {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    
     .btn {
       display: inline-block;
-      background: linear-gradient(to right, var(--gold), var(--gold-light));
-      color: white;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--pure-white);
       font-weight: bold;
-      padding: 0.9rem 1.75rem;
+      padding: 1.1rem 3rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 50px;
       text-decoration: none;
-      font-size: 1.1rem;
-      margin-top: 2rem;
-      box-shadow: var(--shadow);
+      font-size: 1.2rem;
+      box-shadow: 0 6px 20px rgba(227, 173, 85, 0.35);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      letter-spacing: 0.5px;
     }
     
     .btn:hover {
-      background: linear-gradient(to right, var(--gold-dark), var(--gold));
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(227, 173, 85, 0.5);
+      background: linear-gradient(135deg, var(--gold-secondary), var(--gold-primary));
     }
     
-    .btn:after {
-      content: '→';
-      margin-left: 10px;
-      transition: transform 0.3s ease;
+    .btn:active {
+      transform: translateY(1px);
     }
     
-    .btn:hover:after {
-      transform: translateX(5px);
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0));
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
     }
     
-    /* Responsive Design */
+    .btn:hover::after {
+      transform: translateX(100%);
+    }
+    
+    /* Chat button */
+    .chat-floating {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+    
+    .chat-button {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      border: none;
+      box-shadow: 0 8px 20px rgba(227, 173, 85, 0.45);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      color: white;
+      font-size: 1.9rem;
+      animation: pulse 2s infinite;
+    }
+    
+    .chat-button:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 25px rgba(227, 173, 85, 0.65);
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(227, 173, 85, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0);
+      }
+    }
+    
+    /* Visual markers */
+    .card ul li::marker {
+      color: var(--gold-primary);
+      font-size: 1.3em;
+    }
+    
+    .card h2 i {
+      background: linear-gradient(135deg, var(--gold-primary), var(--light-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      gap: 12px;
+    }
+    
+    .step-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #d1d5db;
+      transition: all 0.3s ease;
+    }
+    
+    .step-dot.active {
+      background: linear-gradient(135deg, var(--gold-primary), var(--light-teal));
+      transform: scale(1.3);
+    }
+    
+    /* Responsive design */
     @media (max-width: 768px) {
       body {
-        padding: 80px 1.5rem 100px;
+        padding: 1.5rem;
+        padding-top: 85px;
       }
       
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .card {
-        padding: 1.25rem;
+      .agency-header {
+        padding: 12px 5%;
       }
       
       .agency-logo {
-        height: 35px;
-        top: 15px;
-        left: 15px;
+        height: 38px;
+      }
+      
+      .agency-name {
+        font-size: 1.3rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+        margin: 1.8rem 0;
       }
       
       .chat-button {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
       }
+      
+      .btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.9rem;
+      }
+      
+      .card h2 {
+        font-size: 1.4rem;
+      }
+      
+      li {
+        font-size: 1rem;
+      }
+    }
+    
+    .decorative-element {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, rgba(227, 173, 85, 0.1), rgba(26, 95, 122, 0.1));
+      border-radius: 50%;
+      z-index: -1;
+    }
+    
+    .decorative-element.top-left {
+      top: 5%;
+      left: 5%;
+    }
+    
+    .decorative-element.bottom-right {
+      bottom: 5%;
+      right: 5%;
     }
   </style>
 </head>
 <body>
-  <!-- Agency Logo -->
-  <img src="https://i.imgur.com/7nLmM5p.png" alt="MOBEK MEDIA Logo" class="agency-logo">
+  <!-- Decorative elements -->
+  <div class="decorative-element top-left"></div>
+  <div class="decorative-element bottom-right"></div>
   
+  <!-- Agency header -->
+  <header class="agency-header">
+    <img src="https://i.imgur.com/7nLmM5p.png" alt="MOBEK MEDIA Logo" class="agency-logo">
+    <div class="agency-name">MOBEK MEDIA</div>
+  </header>
+
   <h1>👋 Welcome to <span class="brand">MOBEK MEDIA</span>!</h1>
-  <p>We’re excited to help your kitchen business grow through high-performing paid ads. This setup journey will guide you through everything you need to get started—with zero hassle.</p>
-
-  <div class="card">
-    <h2>🔍 What to Expect</h2>
-    <p>Here’s what we’ll handle for you:</p>
-    <ul>
-      <li>✅ Launch and manage your campaigns on <strong>Meta (Facebook & Instagram)</strong>.</li>
-      <li>✅ Optimize performance daily to reduce costs and increase leads.</li>
-      <li>✅ Keep you informed with regular insights and reports.</li>
-    </ul>
-    <p>Our focus is simple: turning your ad budget into quality kitchen renovation leads — no fluff, no overwhelm.</p>
-  </div>
-
-  <div class="card">
-    <h2>📬 Communication</h2>
-    <p>We stay in touch consistently so you're always informed:</p>
-    <ul>
-      <li>🎥 <strong>Two Loom videos per week</strong> showing progress, updates, and next steps.</li>
-      <li>📊 <strong>A weekly performance report</strong> delivered at the end of each week.</li>
-      <li>📞 <strong>Optional weekly Zoom call</strong> — schedule it anytime to review results or ask questions.</li>
-    </ul>
-    <p>Transparency and consistency are key — and you're always in control.</p>
-  </div>
-
-  <div class="card">
-    <h2>🚀 Setup Process</h2>
-    <p>This onboarding takes just a few minutes. You’ll:</p>
-    <ol>
-      <li>1️⃣ Grant us access to the needed ad accounts.</li>
-      <li>2️⃣ Answer 2–3 questions about your audience & goals.</li>
-      <li>3️⃣ Confirm key details so we can launch smoothly.</li>
-    </ol>
-    <p>You’ll see your progress as you go. Everything is fast and guided!</p>
-  </div>
-
-  <a href="access.html" class="btn">Get Started</a>
+  <p class="subtitle">Your partner in transforming kitchen businesses with high-performing digital advertising</p>
   
-  <!-- Floating Chat Button -->
+  <div class="step-indicator">
+    <div class="step-dot active"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-search"></i> What to Expect</h2>
+    <p>We specialize in driving growth for kitchen businesses through strategic advertising solutions. Here's what we'll handle for you:</p>
+    <ul>
+      <li>✅ Launch and manage campaigns on <strong>Meta (Facebook & Instagram)</strong> and Google Ads</li>
+      <li>✅ Daily optimization to maximize ROI and generate quality leads</li>
+      <li>✅ Transparent reporting with actionable insights every week</li>
+      <li>✅ Creative strategy tailored to your unique brand identity</li>
+    </ul>
+    <p>Our approach combines data-driven strategies with creative excellence to turn your ad spend into measurable business growth.</p>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-comments"></i> Our Communication Style</h2>
+    <p>We believe in transparent and consistent communication to keep you informed and involved:</p>
+    <ul>
+      <li>🎥 <strong>Weekly video updates</strong> showcasing campaign performance and next steps</li>
+      <li>📊 <strong>Detailed performance reports</strong> delivered every Friday</li>
+      <li>📞 <strong>Flexible consultation calls</strong> scheduled at your convenience</li>
+      <li>💬 <strong>24-hour response time</strong> for all your questions and concerns</li>
+    </ul>
+    <p>You'll always be in the loop with clear insights into how your advertising investment is performing.</p>
+  </div>
+
+  <div class="card">
+    <h2><i class="fas fa-rocket"></i> Onboarding Process</h2>
+    <p>Getting started is simple and takes just minutes. Here's our streamlined process:</p>
+    <ol>
+      <li>1️⃣ Grant access to your advertising accounts and analytics</li>
+      <li>2️⃣ Complete our quick brand assessment questionnaire</li>
+      <li>3️⃣ Confirm campaign objectives and target audience</li>
+      <li>4️⃣ Review our proposed strategy and launch timeline</li>
+    </ol>
+    <p>We'll guide you through each step, making setup effortless and efficient.</p>
+  </div>
+
+  <div class="btn-container">
+    <a href="access.html" class="btn">Get Started Now →</a>
+  </div>
+
+  <!-- Floating chat button -->
   <div class="chat-floating">
-    <button class="chat-button" onclick="Tawk_API.toggle()">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-      </svg>
+    <button class="chat-button">
+      <i class="fas fa-comment-dots"></i>
     </button>
   </div>
 
@@ -272,6 +419,11 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
+    
+    // Activate chat when button is clicked
+    document.querySelector('.chat-button').addEventListener('click', function() {
+      Tawk_API.toggle();
+    });
   </script>
 </body>
 </html>
