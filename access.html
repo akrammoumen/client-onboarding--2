@@ -6,12 +6,6 @@
   <title>Access Setup - MOBEK MEDIA</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
     :root {
       --gold-primary: #e3ad55;
       --gold-secondary: #d89b3f;
@@ -21,8 +15,6 @@
       --light-cream: #f8f5f0;
       --pure-white: #ffffff;
       --soft-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      --success-green: #2ecc71;
-      --error-red: #e74c3c;
     }
     
     html {
@@ -31,15 +23,13 @@
     
     body {
       font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-      background-color: var(--light-cream);
-      color: var(--dark-charcoal);
-      padding: 2rem;
       max-width: 900px;
       margin: auto;
-      position: relative;
-      padding-top: 180px;
+      padding: 20px;
+      background: var(--light-cream);
+      color: var(--dark-charcoal);
+      padding-top: 100px;
       padding-bottom: 100px;
-      line-height: 1.6;
     }
     
     /* Agency header */
@@ -69,243 +59,165 @@
       letter-spacing: 0.5px;
     }
     
-    /* Progress bar */
-    .progress-container {
-      position: fixed;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(135deg, var(--deep-teal), #144d63);
-      padding: 20px 5%;
-      z-index: 999;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    
-    .progress-steps {
-      display: flex;
-      justify-content: space-between;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 800px;
-    }
-    
-    .step {
-      list-style: none;
-      font-size: 0.9em;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      position: relative;
-      flex: 1;
-    }
-    
-    .step.active {
-      color: var(--pure-white);
-      font-weight: bold;
-    }
-    
-    .step::before {
-      content: "";
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background-color: rgba(255,255,255,0.3);
-      border: 2px solid var(--pure-white);
-      z-index: 2;
-    }
-    
-    .step.active::before {
-      background: linear-gradient(135deg, var(--gold-primary), var(--light-teal));
-      border: 2px solid var(--pure-white);
-    }
-    
-    .progress-bar {
-      position: absolute;
-      top: 40px;
-      left: 5%;
-      width: 90%;
-      height: 8px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(to right, var(--gold-primary), var(--light-teal));
-      border-radius: 4px;
-      width: 40%; /* Step 2 of 5: 40% */
-      transition: width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    }
-    
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      color: var(--deep-teal);
       text-align: center;
-      font-weight: 700;
-      line-height: 1.2;
+      color: var(--deep-teal);
+      margin-bottom: 30px;
+      font-size: 2.2rem;
     }
     
     .card {
-      background-color: var(--pure-white);
-      border-left: 6px solid var(--gold-primary);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 2.5rem 0;
+      background: var(--pure-white);
+      border-left: 4px solid var(--gold-primary);
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 30px;
       box-shadow: var(--soft-shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
     
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
     
     .card h2 {
-      margin-top: 0;
       color: var(--deep-teal);
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
+      margin-top: 0;
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-    
-    ul, ol {
-      padding-left: 1.5rem;
-      margin: 1.2rem 0;
-    }
-    
-    li {
-      margin-bottom: 0.9rem;
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-    
-    .highlight {
-      color: var(--gold-primary);
-      font-weight: 700;
-    }
-    
-    /* Copy input styles */
-    .input-group {
-      display: flex;
-      margin: 15px 0;
-      align-items: center;
-      flex-wrap: wrap;
       gap: 10px;
     }
     
+    .card h2 i {
+      color: var(--gold-primary);
+    }
+    
     .copy-input {
-      flex: 1;
-      min-width: 250px;
-      padding: 12px 15px;
+      width: 200px;
+      margin-right: 10px;
+      padding: 8px 12px;
       border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      background-color: #fafafa;
-      color: var(--dark-charcoal);
+      border-radius: 6px;
     }
     
     .copy-btn {
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      color: var(--pure-white);
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
       cursor: pointer;
+      background: var(--gold-primary);
+      color: var(--dark-charcoal);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
       font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 8px;
       transition: all 0.3s ease;
     }
     
     .copy-btn:hover {
+      background: var(--gold-secondary);
       transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(227, 173, 85, 0.4);
     }
     
     .step-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      display: inline-block;
       margin-top: 10px;
-      background: linear-gradient(135deg, var(--light-teal), var(--deep-teal));
-      color: var(--pure-white);
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--dark-charcoal);
       padding: 12px 20px;
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(227, 173, 85, 0.3);
     }
     
     .step-link:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(42, 128, 161, 0.4);
+      box-shadow: 0 6px 15px rgba(227, 173, 85, 0.4);
     }
     
     .video-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       margin-top: 8px;
-      background: linear-gradient(135deg, #555, #333);
+      background: var(--deep-teal);
       color: white;
       padding: 10px 15px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       transition: all 0.3s ease;
     }
     
     .video-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      background: var(--light-teal);
+      transform: translateY(-2px);
     }
     
-    .platform-links {
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .popup-content {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 700px;
+      position: relative;
+    }
+    
+    .popup-content iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: var(--gold-primary);
+      border: none;
+      color: var(--dark-charcoal);
+      font-weight: bold;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 15px 0;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     
-    /* Navigation buttons */
     .nav-buttons {
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
     }
     
-    .nav-btn {
+    .nav-buttons a {
       background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      color: var(--pure-white);
+      color: var(--dark-charcoal);
       border: none;
-      padding: 14px 30px;
+      padding: 12px 25px;
       font-weight: bold;
-      border-radius: 50px;
+      border-radius: 8px;
       text-decoration: none;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(227, 173, 85, 0.3);
       transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      box-shadow: 0 4px 10px rgba(227, 173, 85, 0.3);
     }
     
-    .nav-btn:hover {
+    .nav-buttons a:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(227, 173, 85, 0.4);
-    }
-    
-    .nav-btn.back {
-      background: linear-gradient(135deg, var(--light-teal), var(--deep-teal));
+      box-shadow: 0 6px 15px rgba(227, 173, 85, 0.4);
     }
     
     /* Chat button */
@@ -350,104 +262,70 @@
       }
     }
     
-    /* Popup styles */
-    .popup {
-      display: none;
+    /* Progress bar */
+    .progress-container {
       position: fixed;
-      top: 0; 
+      top: 80px;
       left: 0;
-      width: 100vw; 
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-    
-    .popup-content {
-      background: var(--pure-white);
-      padding: 20px;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 900px;
-      position: relative;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    
-    .popup-content iframe {
       width: 100%;
-      height: 500px;
-      border-radius: 10px;
-      border: none;
+      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      padding: 15px 0;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     
-    .close-btn {
-      position: absolute;
-      top: -15px;
-      right: -15px;
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      border: none;
-      color: white;
-      font-weight: bold;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
+    .progress-steps {
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      gap: 30px;
+      padding: 0 20px;
     }
     
-    .close-btn:hover {
-      transform: rotate(90deg);
+    .step {
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    .step.active {
+      color: white;
+      font-weight: 700;
+    }
+    
+    .step.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold-primary);
+      border-radius: 3px;
     }
     
     /* Responsive design */
     @media (max-width: 768px) {
       body {
-        padding: 1.5rem;
-        padding-top: 160px;
+        padding: 15px;
+        padding-top: 90px;
       }
       
       .agency-header {
-        padding: 12px 5%;
-      }
-      
-      .progress-container {
-        top: 70px;
-        padding: 15px 5%;
-      }
-      
-      .step::before {
-        top: -20px;
-        width: 20px;
-        height: 20px;
-      }
-      
-      .progress-bar {
-        top: 35px;
+        padding: 10px 5%;
       }
       
       .agency-logo {
-        height: 38px;
-      }
-      
-      .agency-name {
-        font-size: 1.3rem;
+        height: 35px;
       }
       
       h1 {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
       }
       
-      .card {
-        padding: 1.5rem;
-      }
-      
-      .card h2 {
-        font-size: 1.4rem;
+      .progress-steps {
+        gap: 15px;
+        font-size: 0.9rem;
       }
       
       .chat-button {
@@ -455,79 +333,25 @@
         height: 60px;
         font-size: 1.6rem;
       }
-      
-      .nav-btn {
-        padding: 12px 20px;
-        font-size: 1rem;
-      }
-      
-      .popup-content iframe {
-        height: 300px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .step {
-        font-size: 0.7rem;
-      }
-      
-      .step::before {
-        top: -18px;
-        width: 16px;
-        height: 16px;
-      }
-      
-      .progress-bar {
-        height: 6px;
-        top: 30px;
-      }
-      
-      .input-group {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      
-      .copy-btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-    
-    .success-message {
-      display: none;
-      background: var(--success-green);
-      color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      margin-top: 10px;
-      text-align: center;
-      animation: fadeIn 0.5s;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+
   <!-- Agency header -->
   <header class="agency-header">
     <img src="https://i.imgur.com/7nLmM5p.png" alt="MOBEK MEDIA Logo" class="agency-logo">
     <div class="agency-name">MOBEK MEDIA</div>
   </header>
-  
+
   <!-- Progress bar -->
   <div class="progress-container">
-    <ul class="progress-steps">
-      <li class="step">Welcome</li>
-      <li class="step active">Access</li>
-      <li class="step">Audience</li>
-      <li class="step">Strategy</li>
-      <li class="step">Thank You</li>
-    </ul>
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
+    <div class="progress-steps">
+      <div class="step">Welcome</div>
+      <div class="step active">Access</div>
+      <div class="step">Audience</div>
+      <div class="step">Strategy</div>
+      <div class="step">Thank You</div>
     </div>
   </div>
 
@@ -539,92 +363,53 @@
 
     <!-- Step 1 -->
     <p><strong>1. Add us to your Business Manager:</strong></p>
-    <div class="input-group">
-      <input id="metaID" class="copy-input" value="123456789012345" readonly>
-      <button class="copy-btn" onclick="copyToClipboard('metaID', 'copied-meta')">
-        <i class="far fa-copy"></i> Copy ID
-      </button>
-      <div id="copied-meta" class="success-message">Copied to clipboard!</div>
-    </div>
-    <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank">
-      <i class="fas fa-external-link-alt"></i> Go to Business Manager
-    </a>
-    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/business-manager-guide')">
-      <i class="fas fa-play-circle"></i> Watch Explanation
-    </button>
+    <input id="metaID" class="copy-input" value="123456789012345" readonly>
+    <button class="copy-btn" onclick="copyToClipboard('metaID')">📋 Copy ID</button><br>
+    <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank">Go to Business Manager</a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/business-manager-guide')"><i class="fas fa-play"></i> Watch Explanation</button>
 
     <!-- Step 2 -->
     <p style="margin-top: 25px;"><strong>2. Grant access to your Facebook Page:</strong></p>
-    <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank">
-      <i class="fas fa-cog"></i> Page Settings
-    </a>
-    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/page-access-guide')">
-      <i class="fas fa-play-circle"></i> Watch Explanation
-    </button>
+    <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank">Page Settings</a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/page-access-guide')"><i class="fas fa-play"></i> Watch Explanation</button>
 
     <!-- Step 3 -->
     <p style="margin-top: 25px;"><strong>3. Grant access to your Ad Account:</strong></p>
-    <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank">
-      <i class="fas fa-ad"></i> Ad Account Settings
-    </a>
-    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/ad-account-access')">
-      <i class="fas fa-play-circle"></i> Watch Explanation
-    </button>
+    <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank">Ad Account Settings</a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/ad-account-access')"><i class="fas fa-play"></i> Watch Explanation</button>
 
     <!-- Step 4 -->
     <p style="margin-top: 25px;"><strong>4. Pixel Access:</strong></p>
-    <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank">
-      <i class="fas fa-chart-line"></i> Go to Events Manager
-    </a>
-    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/pixel-guide')">
-      <i class="fas fa-play-circle"></i> Watch Pixel Setup
-    </button>
+    <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank">Go to Events Manager</a>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/pixel-guide')"><i class="fas fa-play"></i> Watch Pixel Setup</button>
   </div>
 
   <!-- Website Access -->
   <div class="card">
     <h2><i class="fas fa-globe"></i> Website & Landing Pages</h2>
     <p>Please grant us access to your website or landing page platform.</p>
-    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/website-access-guide')">
-      <i class="fas fa-play-circle"></i> Watch Website Access Guide
-    </button>
+    <button class="video-btn" onclick="openPopup('https://www.loom.com/embed/website-access-guide')"><i class="fas fa-play"></i> Watch Website Access</button>
 
     <p><strong>Select your platform:</strong></p>
-    <div class="platform-links">
-      <a class="step-link" href="https://wordpress.com/" target="_blank">
-        <i class="fab fa-wordpress"></i> WordPress
-      </a>
-      <a class="step-link" href="https://webflow.com/dashboard" target="_blank">
-        <i class="fas fa-cube"></i> Webflow
-      </a>
-      <a class="step-link" href="https://unbounce.com/" target="_blank">
-        <i class="fas fa-layer-group"></i> Unbounce
-      </a>
-      <a class="step-link" href="https://www.wix.com/dashboard" target="_blank">
-        <i class="fas fa-paint-brush"></i> Wix
-      </a>
-      <a class="step-link" href="https://www.shopify.com/admin" target="_blank">
-        <i class="fas fa-shopping-cart"></i> Shopify
-      </a>
-    </div>
+    <a class="step-link" href="https://wordpress.com/" target="_blank">WordPress</a>
+    <a class="step-link" href="https://webflow.com/dashboard" target="_blank">Webflow</a>
+    <a class="step-link" href="https://unbounce.com/" target="_blank">Unbounce</a>
+    <a class="step-link" href="https://www.wix.com/dashboard" target="_blank">Wix</a>
+    <a class="step-link" href="https://www.shopify.com/admin" target="_blank">Shopify</a>
 
     <p style="margin-top: 15px;">Alternatively, you can email access details to:</p>
-    <p><strong><i class="fas fa-envelope"></i> akram@mobekmedia.site</strong></p>
+    <strong>akram@mobekmedia.site</strong>
   </div>
 
-  <!-- Navigation buttons -->
+  <!-- Navigation Buttons -->
   <div class="nav-buttons">
-    <a href="index.html" class="nav-btn back">
-      <i class="fas fa-arrow-left"></i> Previous
-    </a>
-    <a href="audience.html" class="nav-btn">
-      Next <i class="fas fa-arrow-right"></i>
-    </a>
+    <a href="index.html"><i class="fas fa-arrow-left"></i> Previous</a>
+    <a href="audience.html">Next <i class="fas fa-arrow-right"></i></a>
   </div>
 
   <!-- Floating chat button -->
   <div class="chat-floating">
-    <button class="chat-button">
+    <button class="chat-button" id="chatButton">
       <i class="fas fa-comment-dots"></i>
     </button>
   </div>
@@ -637,36 +422,19 @@
     </div>
   </div>
 
-  <!-- Tawk.to Live Chat -->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function() {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/688393fc8beeee192b5d57c/1hsjguvfr';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-    
-    // Activate chat when button is clicked
-    document.querySelector('.chat-button').addEventListener('click', function() {
-      Tawk_API.toggle();
-    });
-    
-    // Copy to clipboard function
-    function copyToClipboard(id, messageId) {
+  <script>
+    function copyToClipboard(id) {
       const copyText = document.getElementById(id);
-      navigator.clipboard.writeText(copyText.value).then(() => {
-        const message = document.getElementById(messageId);
-        message.style.display = 'block';
-        setTimeout(() => {
-          message.style.display = 'none';
-        }, 2000);
-      });
+      navigator.clipboard.writeText(copyText.value);
+      
+      // Show feedback
+      const btn = document.querySelector(`#${id}`).nextElementSibling;
+      btn.innerHTML = '✓ Copied!';
+      setTimeout(() => {
+        btn.innerHTML = '📋 Copy ID';
+      }, 2000);
     }
-    
-    // Video popup functions
+
     function openPopup(url) {
       const popup = document.getElementById('videoPopup');
       const frame = document.getElementById('popupFrame');
@@ -674,7 +442,7 @@
       popup.style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
-    
+
     function closePopup() {
       const popup = document.getElementById('videoPopup');
       const frame = document.getElementById('popupFrame');
@@ -682,6 +450,41 @@
       popup.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
+
+    // Enhanced Tawk.to integration
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/688393fc8beeee192b5d57c7/default';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+    
+    function checkTawkReady() {
+      if (window.Tawk_API && window.Tawk_API.toggle) {
+        document.getElementById('chatButton').addEventListener('click', function() {
+          Tawk_API.toggle();
+        });
+      } else {
+        setTimeout(checkTawkReady, 500);
+      }
+    }
+    
+    window.addEventListener('DOMContentLoaded', function() {
+      checkTawkReady();
+      
+      setTimeout(function() {
+        if (!window.Tawk_API || !window.Tawk_API.toggle) {
+          document.getElementById('chatButton').addEventListener('click', function() {
+            window.open('https://tawk.to/chat/688393fc8beeee192b5d57c7/default', '_blank');
+          });
+        }
+      }, 5000);
+    });
   </script>
+
 </body>
 </html>
