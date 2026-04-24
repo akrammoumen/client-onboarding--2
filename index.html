@@ -4,16 +4,10 @@
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome – MOBEK MEDIA</title>
+  <title>Access Setup - MOBEK MEDIA</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     :root {
       --gold-primary: #e3ad55;
       --gold-secondary: #d89b3f;
@@ -26,16 +20,14 @@
     }
 
     body {
-      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-      background-color: var(--light-cream);
-      color: var(--dark-charcoal);
-      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
       max-width: 900px;
       margin: auto;
-      position: relative;
-      padding-top: 100px;
+      padding: 20px;
+      background: var(--light-cream);
+      color: var(--dark-charcoal);
+      padding-top: 140px;
       padding-bottom: 100px;
-      line-height: 1.6;
     }
 
     .agency-header {
@@ -48,98 +40,72 @@
       z-index: 1000;
       box-shadow: var(--soft-shadow);
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
+      gap: 15px;
     }
 
     .agency-logo {
-      height: 45px;
+      height: 50px;
       border: 3px solid var(--gold-primary);
       border-radius: 8px;
-      background-color: white;
-      padding: 4px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      padding: 2px;
+      background: white;
     }
 
     .agency-name {
-      color: var(--pure-white);
+      color: white;
       font-weight: 700;
-      font-size: 1.5rem;
-    }
-
-    .brand {
-      color: var(--gold-primary);
-      font-weight: 800;
+      font-size: 1.6rem;
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+      text-align: center;
       color: var(--deep-teal);
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-
-    .subtitle {
-      font-size: 1.4rem;
-      text-align: center;
-      margin-bottom: 1rem;
-      color: var(--light-teal);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.15rem;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 25px;
     }
 
-    .card {
-      background-color: var(--pure-white);
-      border-left: 6px solid var(--gold-primary);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 2rem 0;
+    .box {
+      background: var(--light-cream);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 4px solid var(--gold-primary);
       box-shadow: var(--soft-shadow);
     }
 
-    .card h2 {
+    .box strong {
       color: var(--deep-teal);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
-    ul {
-      padding-left: 1.5rem;
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
     }
 
-    li {
-      margin-bottom: 0.8rem;
-    }
-
-    .btn-container {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      color: white;
+    .copy-btn {
+      margin-top: 10px;
+      background: var(--gold-primary);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
       font-weight: bold;
-      padding: 1.1rem 3rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      box-shadow: 0 6px 20px rgba(227, 173, 85, 0.35);
+      cursor: pointer;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
+    .note {
+      text-align: center;
+      margin-top: 20px;
+      color: #6b7280;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -151,72 +117,66 @@
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
-<h1>👋 Welcome to <span class="brand">MOBEK MEDIA</span>!</h1>
+<h1>Grant Access for Campaign Setup</h1>
+<p>Please follow the steps below to grant full access. This allows us to launch your campaigns within 24–48 hours.</p>
 
-<p class="subtitle">
-Your partner in scaling kitchen businesses with paid ads
+<!-- META -->
+<div class="box">
+  <strong>Step 1: Business Manager Access</strong><br><br>
+  Add this ID as Partner:
+  <input id="metaID" value="123456789012345" readonly>
+  <button class="copy-btn" onclick="copyToClipboard('metaID')">Copy ID</button>
+</div>
+
+<!-- PAGE -->
+<div class="box">
+  <strong>Step 2: Facebook Page Access</strong><br><br>
+  Go to Page Settings → Page Access → Add Partner<br>
+  Give FULL CONTROL access
+</div>
+
+<!-- AD ACCOUNT -->
+<div class="box">
+  <strong>Step 3: Ad Account Access</strong><br><br>
+  Go to Ads Manager → Account Settings → Add Partner<br>
+  Give ADMIN access
+</div>
+
+<!-- PIXEL -->
+<div class="box">
+  <strong>Step 4: Pixel Access</strong><br><br>
+  Open Events Manager → Select Pixel → Assign Partner<br>
+  Required for tracking conversions
+</div>
+
+<!-- INSTAGRAM -->
+<div class="box">
+  <strong>Step 5: Instagram Account Access</strong><br><br>
+  Make sure Instagram is connected to Business Manager<br>
+  If not → Add it under Instagram Accounts section
+</div>
+
+<!-- CONTENT -->
+<div class="box">
+  <strong>Step 6: Content & Assets</strong><br><br>
+  Please provide:<br><br>
+  ✔ Product photos (kitchens)<br>
+  ✔ Project videos<br>
+  ✔ Catalog / designs<br><br>
+  Send via Google Drive or any link
+</div>
+
+<p class="note">
+All steps are required to ensure proper setup and accurate tracking.
 </p>
 
-<!-- 🔥 NEW -->
-<p style="text-align:center;color:#1a5f7a;font-weight:500;margin-bottom:20px;">
-This onboarding takes less than 5 minutes to complete. Everything is required to launch your campaigns properly.
-</p>
-
-<p style="text-align:center;color:#6b7280;font-size:0.95rem;margin-bottom:20px;">
-No technical skills required — we handle everything for you.
-</p>
-
-<div class="card">
-  <h2><i class="fas fa-bolt"></i> What Happens Next</h2>
-  <ul>
-    <li>We set up your full ad system</li>
-    <li>We prepare optimized campaigns</li>
-    <li>We start generating qualified leads</li>
-  </ul>
-</div>
-
-<hr style="margin:30px 0;border-color:#e5e7eb;">
-
-<div class="card">
-  <h2><i class="fas fa-search"></i> What to Expect</h2>
-  <ul>
-    <li>Meta & Google Ads management</li>
-    <li>Daily optimization</li>
-    <li>Weekly reporting</li>
-    <li>Creative strategy</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2><i class="fas fa-comments"></i> Communication</h2>
-  <ul>
-    <li>Weekly updates</li>
-    <li>Performance reports</li>
-    <li>Fast response support</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2><i class="fas fa-rocket"></i> Onboarding Process</h2>
-  <ol>
-    <li>Grant access to accounts</li>
-    <li>Complete brand questions</li>
-    <li>Confirm targeting</li>
-    <li>Launch strategy</li>
-  </ol>
-</div>
-
-<div class="btn-container">
-  <p style="text-align:center;font-weight:500;color:#1a5f7a;margin-bottom:10px;">
-    👉 Step 1: Start onboarding
-  </p>
-
-  <a href="access.html" class="btn">Get Started Now →</a>
-
-  <p style="text-align:center;color:#6b7280;font-size:0.9rem;margin-top:10px;">
-    Takes less than 3 minutes to complete all steps
-  </p>
-</div>
+<script>
+function copyToClipboard(id) {
+  const copyText = document.getElementById(id);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied successfully");
+}
+</script>
 
 </body>
 </html>
