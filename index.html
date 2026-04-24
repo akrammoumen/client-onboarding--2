@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Welcome – MOBEK MEDIA</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    
+
     :root {
       --gold-primary: #e3ad55;
       --gold-secondary: #d89b3f;
@@ -22,7 +24,7 @@
       --pure-white: #ffffff;
       --soft-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
-    
+
     body {
       font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
       background-color: var(--light-cream);
@@ -35,8 +37,7 @@
       padding-bottom: 100px;
       line-height: 1.6;
     }
-    
-    /* Agency header */
+
     .agency-header {
       position: fixed;
       top: 0;
@@ -50,427 +51,172 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .agency-logo {
       height: 45px;
+      border: 3px solid var(--gold-primary);
+      border-radius: 8px;
+      background-color: white;
+      padding: 4px;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
-    
+
     .agency-name {
       color: var(--pure-white);
       font-weight: 700;
       font-size: 1.5rem;
-      letter-spacing: 0.5px;
     }
-    
+
     .brand {
       color: var(--gold-primary);
       font-weight: 800;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    
+
     h1 {
       font-size: 2.8rem;
       margin-bottom: 1rem;
       color: var(--deep-teal);
       text-align: center;
       margin-top: 1.5rem;
-      font-weight: 700;
-      line-height: 1.2;
     }
-    
+
     .subtitle {
       font-size: 1.4rem;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       color: var(--light-teal);
-      font-weight: 400;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     p {
       font-size: 1.15rem;
-      line-height: 1.7;
       text-align: center;
-      margin-bottom: 1.5rem;
-      color: var(--dark-charcoal);
+      margin-bottom: 1rem;
     }
-    
+
     .card {
       background-color: var(--pure-white);
       border-left: 6px solid var(--gold-primary);
       border-radius: 16px;
       padding: 2rem;
-      margin: 2.5rem 0;
+      margin: 2rem 0;
       box-shadow: var(--soft-shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-    }
-    
+
     .card h2 {
-      margin-top: 0;
       color: var(--deep-teal);
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
-    
-    ul, ol {
+
+    ul {
       padding-left: 1.5rem;
-      margin: 1.2rem 0;
     }
-    
+
     li {
-      margin-bottom: 0.9rem;
-      line-height: 1.7;
-      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
     }
-    
-    .highlight {
-      color: var(--gold-primary);
-      font-weight: 700;
-    }
-    
+
     .btn-container {
       text-align: center;
       margin-top: 2.5rem;
     }
-    
+
     .btn {
       display: inline-block;
       background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      color: var(--pure-white);
+      color: white;
       font-weight: bold;
       padding: 1.1rem 3rem;
-      border: none;
       border-radius: 50px;
       text-decoration: none;
       font-size: 1.2rem;
       box-shadow: 0 6px 20px rgba(227, 173, 85, 0.35);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      letter-spacing: 0.5px;
     }
-    
+
     .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(227, 173, 85, 0.5);
-      background: linear-gradient(135deg, var(--gold-secondary), var(--gold-primary));
-    }
-    
-    .btn:active {
-      transform: translateY(1px);
-    }
-    
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0));
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
-    }
-    
-    .btn:hover::after {
-      transform: translateX(100%);
-    }
-    
-    /* Chat button */
-    .chat-floating {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 1000;
-    }
-    
-    .chat-button {
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      border: none;
-      box-shadow: 0 8px 20px rgba(227, 173, 85, 0.45);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      color: white;
-      font-size: 1.9rem;
-      animation: pulse 2s infinite;
-    }
-    
-    .chat-button:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 10px 25px rgba(227, 173, 85, 0.65);
-    }
-    
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(227, 173, 85, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0);
-      }
-    }
-    
-    /* Visual markers */
-    .card ul li::marker {
-      color: var(--gold-primary);
-      font-size: 1.3em;
-    }
-    
-    .card h2 i {
-      background: linear-gradient(135deg, var(--gold-primary), var(--light-teal));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .step-indicator {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
-      gap: 12px;
-    }
-    
-    .step-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background-color: #d1d5db;
-      transition: all 0.3s ease;
-    }
-    
-    .step-dot.active {
-      background: linear-gradient(135deg, var(--gold-primary), var(--light-teal));
-      transform: scale(1.3);
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      body {
-        padding: 1.5rem;
-        padding-top: 85px;
-      }
-      
-      .agency-header {
-        padding: 12px 5%;
-      }
-      
-      .agency-logo {
-        height: 38px;
-      }
-      
-      .agency-name {
-        font-size: 1.3rem;
-      }
-      
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      .subtitle {
-        font-size: 1.2rem;
-      }
-      
-      .card {
-        padding: 1.5rem;
-        margin: 1.8rem 0;
-      }
-      
-      .chat-button {
-        width: 60px;
-        height: 60px;
-        font-size: 1.6rem;
-      }
-      
-      .btn {
-        padding: 1rem 2.5rem;
-        font-size: 1.1rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.9rem;
-      }
-      
-      .card h2 {
-        font-size: 1.4rem;
-      }
-      
-      li {
-        font-size: 1rem;
-      }
-    }
-    
-    .decorative-element {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      background: linear-gradient(135deg, rgba(227, 173, 85, 0.1), rgba(26, 95, 122, 0.1));
-      border-radius: 50%;
-      z-index: -1;
-    }
-    
-    .decorative-element.top-left {
-      top: 5%;
-      left: 5%;
-    }
-    
-    .decorative-element.bottom-right {
-      bottom: 5%;
-      right: 5%;
+      transform: translateY(-3px);
     }
   </style>
 </head>
+
 <body>
-  <!-- Decorative elements -->
-  <div class="decorative-element top-left"></div>
-  <div class="decorative-element bottom-right"></div>
-  
-  <!-- Agency header -->
-  <header class="agency-header">
-    <img src="https://i.imgur.com/7nLmM5p.png" alt="MOBEK MEDIA Logo" class="agency-logo">
-    <div class="agency-name">MOBEK MEDIA</div>
-  </header>
 
-  <h1>👋 Welcome to <span class="brand">MOBEK MEDIA</span>!</h1>
-  <p class="subtitle">Your partner in transforming kitchen businesses with high-performing digital advertising</p>
-  
-  <div class="step-indicator">
-    <div class="step-dot active"></div>
-    <div class="step-dot"></div>
-    <div class="step-dot"></div>
-    <div class="step-dot"></div>
-    <div class="step-dot"></div>
-  </div>
+<header class="agency-header">
+  <img src="mobek_agency.png" class="agency-logo">
+  <div class="agency-name">MOBEK MEDIA</div>
+</header>
 
-  <div class="card">
-    <h2><i class="fas fa-search"></i> What to Expect</h2>
-    <p>We specialize in driving growth for kitchen businesses through strategic advertising solutions. Here's what we'll handle for you:</p>
-    <ul>
-      <li>✅ Launch and manage campaigns on <strong>Meta (Facebook & Instagram)</strong> and Google Ads</li>
-      <li>✅ Daily optimization to maximize ROI and generate quality leads</li>
-      <li>✅ Transparent reporting with actionable insights every week</li>
-      <li>✅ Creative strategy tailored to your unique brand identity</li>
-    </ul>
-    <p>Our approach combines data-driven strategies with creative excellence to turn your ad spend into measurable business growth.</p>
-  </div>
+<h1>👋 Welcome to <span class="brand">MOBEK MEDIA</span>!</h1>
 
-  <div class="card">
-    <h2><i class="fas fa-comments"></i> Our Communication Style</h2>
-    <p>We believe in transparent and consistent communication to keep you informed and involved:</p>
-    <ul>
-      <li>🎥 <strong>Weekly video updates</strong> showcasing campaign performance and next steps</li>
-      <li>📊 <strong>Detailed performance reports</strong> delivered every Friday</li>
-      <li>📞 <strong>Flexible consultation calls</strong> scheduled at your convenience</li>
-      <li>💬 <strong>24-hour response time</strong> for all your questions and concerns</li>
-    </ul>
-    <p>You'll always be in the loop with clear insights into how your advertising investment is performing.</p>
-  </div>
+<p class="subtitle">
+Your partner in scaling kitchen businesses with paid ads
+</p>
 
-  <div class="card">
-    <h2><i class="fas fa-rocket"></i> Onboarding Process</h2>
-    <p>Getting started is simple and takes just minutes. Here's our streamlined process:</p>
-    <ol>
-      <li>1️⃣ Grant access to your advertising accounts and analytics</li>
-      <li>2️⃣ Complete our quick brand assessment questionnaire</li>
-      <li>3️⃣ Confirm campaign objectives and target audience</li>
-      <li>4️⃣ Review our proposed strategy and launch timeline</li>
-    </ol>
-    <p>We'll guide you through each step, making setup effortless and efficient.</p>
-  </div>
+<!-- 🔥 NEW -->
+<p style="text-align:center;color:#1a5f7a;font-weight:500;margin-bottom:20px;">
+This onboarding takes less than 5 minutes to complete. Everything is required to launch your campaigns properly.
+</p>
 
-  <div class="btn-container">
-    <a href="access.html" class="btn">Get Started Now →</a>
-  </div>
+<p style="text-align:center;color:#6b7280;font-size:0.95rem;margin-bottom:20px;">
+No technical skills required — we handle everything for you.
+</p>
 
-  <!-- Floating chat button -->
-  <div class="chat-floating">
-    <button class="chat-button" id="chatButton">
-      <i class="fas fa-comment-dots"></i>
-    </button>
-  </div>
+<div class="card">
+  <h2><i class="fas fa-bolt"></i> What Happens Next</h2>
+  <ul>
+    <li>We set up your full ad system</li>
+    <li>We prepare optimized campaigns</li>
+    <li>We start generating qualified leads</li>
+  </ul>
+</div>
 
-  <!-- Enhanced Tawk.to Live Chat Integration -->
-  <script type="text/javascript">
-    // 1. Initialize Tawk_API variables
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    
-    // 2. Load Tawk.to script
-    (function(){
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/688393fc8beeee192b5d57c7/default';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-    
-    // 3. Function to check if Tawk.to is ready
-    function checkTawkReady() {
-      if (window.Tawk_API && window.Tawk_API.toggle) {
-        // Chat is ready, set up click handler
-        document.getElementById('chatButton').addEventListener('click', function() {
-          Tawk_API.toggle();
-        });
-        console.log('Tawk.to chat is ready!');
-      } else {
-        // Chat not ready yet, check again in 500ms
-        setTimeout(checkTawkReady, 500);
-      }
-    }
-    
-    // 4. Start checking when page loads
-    window.addEventListener('DOMContentLoaded', function() {
-      checkTawkReady();
-      
-      // Fallback: If chat doesn't load within 5 seconds, open in new tab
-      setTimeout(function() {
-        if (!window.Tawk_API || !window.Tawk_API.toggle) {
-          document.getElementById('chatButton').addEventListener('click', function() {
-            window.open('https://tawk.to/chat/688393fc8beeee192b5d57c7/default', '_blank');
-          });
-          console.log('Using fallback chat solution');
-        }
-      }, 5000);
-    });
-    
-    // 5. Diagnostic right-click on chat button
-    document.getElementById('chatButton').addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-      if (window.Tawk_API && window.Tawk_API.toggle) {
-        alert('Tawk.to chat is ready and working properly!');
-      } else {
-        alert('Tawk.to is still loading or not available. Please wait or refresh the page.');
-      }
-    });
-  </script>
+<hr style="margin:30px 0;border-color:#e5e7eb;">
 
-  <!-- Fallback for JavaScript disabled -->
-  <noscript>
-    <style>
-      .chat-floating { display: none !important; }
-    </style>
-    <div class="nojs-warning" style="position:fixed; bottom:20px; right:20px; background:#ff4444; color:white; padding:10px; border-radius:5px; z-index:9999;">
-      Please enable JavaScript for live chat support.
-    </div>
-  </noscript>
+<div class="card">
+  <h2><i class="fas fa-search"></i> What to Expect</h2>
+  <ul>
+    <li>Meta & Google Ads management</li>
+    <li>Daily optimization</li>
+    <li>Weekly reporting</li>
+    <li>Creative strategy</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2><i class="fas fa-comments"></i> Communication</h2>
+  <ul>
+    <li>Weekly updates</li>
+    <li>Performance reports</li>
+    <li>Fast response support</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2><i class="fas fa-rocket"></i> Onboarding Process</h2>
+  <ol>
+    <li>Grant access to accounts</li>
+    <li>Complete brand questions</li>
+    <li>Confirm targeting</li>
+    <li>Launch strategy</li>
+  </ol>
+</div>
+
+<div class="btn-container">
+  <p style="text-align:center;font-weight:500;color:#1a5f7a;margin-bottom:10px;">
+    👉 Step 1: Start onboarding
+  </p>
+
+  <a href="access.html" class="btn">Get Started Now →</a>
+
+  <p style="text-align:center;color:#6b7280;font-size:0.9rem;margin-top:10px;">
+    Takes less than 3 minutes to complete all steps
+  </p>
+</div>
+
 </body>
 </html>
