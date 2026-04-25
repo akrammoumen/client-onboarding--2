@@ -3,8 +3,8 @@
 <head>
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Access Setup - MOBEK MEDIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audience Survey | MOBEK MEDIA</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -24,7 +24,7 @@
       color: var(--dark-charcoal);
       min-height: 100vh;
     }
-    /* Agency header (identical to audience page) */
+    /* Agency header identical to access page */
     .agency-header {
       position: fixed;
       top: 0;
@@ -52,7 +52,7 @@
       font-size: 1.5rem;
       letter-spacing: 0.5px;
     }
-    /* Progress bar */
+    /* Progress bar identical to access page */
     .progress-container {
       position: fixed;
       top: 80px;
@@ -89,7 +89,7 @@
       background: var(--gold-primary);
       border-radius: 3px;
     }
-    /* Card style (original from given code) */
+    /* Card style (original) */
     .card {
       background: var(--pure-white);
       border-left: 4px solid var(--gold-primary);
@@ -103,87 +103,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-    .step-link {
-      display: inline-block;
-      margin-top: 10px;
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      color: var(--dark-charcoal);
-      padding: 12px 20px;
-      border-radius: 8px;
+      font-size: 1.5rem;
       font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(227, 173, 85, 0.3);
-      transition: all 0.2s ease;
-    }
-    .step-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(227, 173, 85, 0.4);
-    }
-    .copy-btn {
-      background: var(--gold-primary);
-      border: none;
-      padding: 8px 15px;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .copy-btn:hover {
-      background: var(--gold-secondary);
-    }
-    /* tip button (replaces image buttons) */
-    .tip-btn {
-      background: var(--deep-teal);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      border: none;
-      margin-top: 8px;
-      transition: 0.2s;
-    }
-    .tip-btn:hover {
-      background: var(--light-teal);
-    }
-    /* popup for tips */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-    .popup-content {
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 25px 40px rgba(0,0,0,0.3);
-      position: relative;
-      border-left: 5px solid var(--gold-primary);
-    }
-    .close-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--gold-primary);
-      border: none;
-      color: var(--dark-charcoal);
-      font-weight: bold;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
     }
     .form-input {
       border: 1px solid #e2e8f0;
@@ -191,6 +112,7 @@
       padding: 14px 16px;
       transition: all 0.3s ease;
       width: 100%;
+      font-family: inherit;
     }
     .form-input:focus {
       border-color: var(--gold-primary);
@@ -222,7 +144,6 @@
       margin-top: 40px;
       gap: 20px;
     }
-    /* Responsive */
     @media (max-width: 768px) {
       .agency-header {
         padding: 10px 5%;
@@ -234,6 +155,9 @@
         gap: 15px;
         font-size: 0.9rem;
       }
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -244,12 +168,12 @@
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
-<!-- Progress bar (same as audience) -->
+<!-- Progress bar -->
 <div class="progress-container">
   <div class="progress-steps">
     <div class="step">Welcome</div>
-    <div class="step active">Access</div>
-    <div class="step">Audience</div>
+    <div class="step">Access</div>
+    <div class="step active">Audience</div>
     <div class="step">Strategy</div>
     <div class="step">Thank You</div>
   </div>
@@ -257,79 +181,87 @@
 
 <!-- Main content -->
 <div class="max-w-3xl w-full mx-auto px-4" style="margin-top: 160px; margin-bottom: 100px;">
-  
-  <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">🔐 Grant Us Access in Just a Few Steps</h1>
-  <p class="text-center text-gray-600 mb-8">We need the right permissions to start driving results for your kitchen & furniture brand.</p>
+  <h1 class="text-3xl font-bold mb-2 text-center text-gray-900">📋 Understanding Your Business</h1>
+  <p class="text-center text-gray-600 mb-8">Help us tailor a winning Meta Ads strategy for your kitchen & furniture brand.</p>
 
-  <!-- Meta Access Card -->
-  <div class="card">
-    <h2><i class="fab fa-facebook-square"></i> Meta Access (Business Manager)</h2>
-    <p><strong>1. Add our partner ID to your Business Manager:</strong></p>
-    <div class="flex flex-wrap items-center gap-3 mb-3">
-      <input id="metaID" value="123456789012345" readonly class="border rounded px-3 py-2 bg-gray-100 flex-1">
-      <button class="copy-btn" onclick="copyToClipboard('metaID')">📋 Copy ID</button>
+  <form id="audienceForm" action="https://formspree.io/f/xanbqzjl" method="POST">
+    <!-- Section 1: Offer & Business -->
+    <div class="card">
+      <h2><i class="fas fa-tag"></i> Offer & Business</h2>
+      <div class="space-y-5">
+        <div>
+          <label class="block font-semibold mb-1">What offer do you want to promote?</label>
+          <input type="text" name="offer" class="form-input" placeholder="e.g., 20% off kitchen packages, free design consultation, financing options" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">What is your most profitable service?</label>
+          <input type="text" name="profitable_service" class="form-input" placeholder="e.g., custom cabinets, countertops, full kitchen remodel" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">What is your average deal value? (USD/CAD)</label>
+          <input type="text" name="avg_deal_value" class="form-input" placeholder="e.g., $15,000" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">What is your minimum project price?</label>
+          <input type="text" name="min_project_price" class="form-input" placeholder="e.g., $5,000" required>
+        </div>
+      </div>
     </div>
-    <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank"><i class="fas fa-external-link-alt"></i> Go to Business Manager</a>
-    <button class="tip-btn" onclick="showTip('metaTip')"><i class="fas fa-lightbulb"></i> Tip: Required permission level</button>
-    <div style="display: none;" id="metaTip">
-      <strong>What access we need:</strong> We require <strong>Admin or Manage Ad Accounts</strong> access to your Business Manager. This allows us to create ads, manage pixels, and view analytics. Don't worry — we never touch billing info.
+
+    <!-- Section 2: Target Audience -->
+    <div class="card">
+      <h2><i class="fas fa-users"></i> Target Audience</h2>
+      <div class="space-y-5">
+        <div>
+          <label class="block font-semibold mb-1">Who is your ideal client?</label>
+          <textarea name="ideal_client" rows="3" class="form-input" placeholder="Example: Homeowners aged 35-55, suburbs, looking for quality kitchen renovation within 30 miles of our showroom..."></textarea>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">Who is NOT the right client for you?</label>
+          <textarea name="not_ideal_client" rows="3" class="form-input" placeholder="Example: Someone looking for the cheapest option, need everything done in 1 week, rental property owners..."></textarea>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">What traits do your current clients have in common?</label>
+          <textarea name="common_traits" rows="3" class="form-input" placeholder="Example: They come from referrals, own their home 5+ years, value custom design, live in zip codes 90210, 90211..."></textarea>
+        </div>
+      </div>
     </div>
 
-    <p class="mt-4"><strong>2. Grant access to your Facebook Page:</strong></p>
-    <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank"><i class="fas fa-th-large"></i> Page Settings</a>
-    <button class="tip-btn" onclick="showTip('pageTip')"><i class="fas fa-lightbulb"></i> Tip: Page role needed</button>
-    <div style="display: none;" id="pageTip">We need <strong>Advertiser or Admin</strong> role on the Page. This lets us boost posts and run Page-Like campaigns.</div>
-
-    <p class="mt-4"><strong>3. Grant access to your Ad Account:</strong></p>
-    <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank"><i class="fas fa-chart-line"></i> Ad Account Settings</a>
-    <button class="tip-btn" onclick="showTip('adTip')"><i class="fas fa-lightbulb"></i> Tip: Ad account level</button>
-    <div style="display: none;" id="adTip">We require <strong>Manage Campaigns</strong> permission. We never request billing permissions.</div>
-
-    <p class="mt-4"><strong>4. Pixel Access (Events Manager):</strong></p>
-    <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank"><i class="fas fa-code"></i> Events Manager</a>
-    <button class="tip-btn" onclick="showTip('pixelTip')"><i class="fas fa-lightbulb"></i> Tip: Pixel permissions</button>
-    <div style="display: none;" id="pixelTip">Assign our partner ID with <strong>Manage Pixels</strong> access so we can install and optimize conversion events.</div>
-
-    <p class="mt-4"><strong>5. Instagram Business Account (if connected to BM):</strong></p>
-    <a class="step-link" href="https://business.facebook.com/settings/instagram-accounts" target="_blank"><i class="fab fa-instagram"></i> Instagram Accounts</a>
-    <button class="tip-btn" onclick="showTip('igTip')"><i class="fas fa-lightbulb"></i> Tip: Instagram access</button>
-    <div style="display: none;" id="igTip">If your Instagram is linked to your Business Manager, please add us as a <strong>Partner</strong> with "Manage Advertisements" permission. If not yet connected, connect it first (Settings → Instagram Accounts).</div>
-  </div>
-
-  <!-- Website & Landing Pages Card (simplified, no platform buttons) -->
-  <div class="card">
-    <h2><i class="fas fa-globe"></i> Website / Landing Page Access</h2>
-    <p>We need access to your website or landing page platform to install tracking pixels (Meta, Google) and optimize conversion paths.</p>
-    <p class="mt-2"><strong>How to provide access:</strong> Add our team email <strong>akram@mobekmedia.site</strong> as an administrator or editor on your platform (WordPress, Shopify, Webflow, Unbounce, Wix, etc.). Alternatively, share a temporary login via a secure password manager (we recommend 1Password).</p>
-    <div class="mt-3 flex items-center gap-3">
-      <input id="emailCopy" value="akram@mobekmedia.site" readonly class="border rounded px-3 py-2 bg-gray-100 flex-1">
-      <button class="copy-btn" onclick="copyToClipboard('emailCopy')">📋 Copy Email</button>
+    <!-- Section 3: Operations & Sales -->
+    <div class="card">
+      <h2><i class="fas fa-chart-line"></i> Operations & Sales</h2>
+      <div class="space-y-5">
+        <div>
+          <label class="block font-semibold mb-1">Who responds to leads and how fast?</label>
+          <input type="text" name="lead_response" class="form-input" placeholder="e.g., Sarah (sales manager) responds within 15 minutes during business hours" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">How many projects can you handle per month?</label>
+          <input type="text" name="monthly_capacity" class="form-input" placeholder="e.g., 5-8 kitchen projects" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">What locations do you want to target?</label>
+          <input type="text" name="target_locations" class="form-input" placeholder="e.g., Within 30 miles of Austin, TX; specific zip codes 78701-78705" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">Can you track where your leads and sales come from?</label>
+          <input type="text" name="tracking_method" class="form-input" placeholder="e.g., Yes, using CallRail + UTM parameters in HubSpot CRM" required>
+        </div>
+      </div>
     </div>
-    <button class="tip-btn mt-3" onclick="showTip('websiteTip')"><i class="fas fa-lightbulb"></i> Tip: What we exactly need</button>
-    <div style="display: none;" id="websiteTip">We need <strong>admin or developer access</strong> to insert Meta Pixel, Conversions API, and custom audiences. Don't worry — we only touch tracking scripts and never modify content/pricing.</div>
-  </div>
 
-  <!-- Creative assets link (integrated with Next button via Formspree) -->
-  <div class="card">
-    <h2><i class="fas fa-photo-video"></i> Creative Assets (Images & Videos)</h2>
-    <p>Please share a link to your product photos, videos, and any brand assets (Google Drive, Dropbox, OneDrive, or shared folder).</p>
-    <form id="creativeForm" action="https://formspree.io/f/xanbqzjl" method="POST" class="mt-3">
-      <input type="hidden" name="_subject" value="New Creative Assets Link from Client">
-      <input type="url" name="creative-link" id="creativeLink" class="form-input" placeholder="e.g., https://drive.google.com/... or https://dropbox.com/..." required>
-      <div class="text-sm text-gray-500 mt-2">We'll use these visuals to create high-converting ad creatives.</div>
-    </form>
-    <button class="tip-btn mt-3" onclick="showTip('creativeTip')"><i class="fas fa-lightbulb"></i> Tip: Best practices</button>
-    <div style="display: none;" id="creativeTip">Include lifestyle images, before/after kitchen shots, and short demo videos (15-30 sec). High resolution preferred. Folders organized by product category help us work faster.</div>
-  </div>
+    <!-- Hidden input for formspree subject -->
+    <input type="hidden" name="_subject" value="New Audience Survey from Client">
 
-  <!-- Navigation Buttons: Previous, Next (Next submits creative form + proceeds) -->
-  <div class="nav-buttons">
-    <a href="index.html" class="btn-primary"><i class="fas fa-arrow-left"></i> Previous</a>
-    <button id="nextBtn" class="btn-primary">Next <i class="fas fa-arrow-right"></i></button>
-  </div>
+    <!-- Navigation Buttons: Previous + Next (submits form) -->
+    <div class="nav-buttons">
+      <a href="access.html" class="btn-primary"><i class="fas fa-arrow-left"></i> Previous</a>
+      <button type="submit" class="btn-primary" id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </form>
 </div>
 
-<!-- Tawk.to Integration (same as audience) -->
+<!-- Tawk.to Integration (same as access page) -->
 <script type="text/javascript">
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
   (function(){
@@ -342,61 +274,15 @@
   })();
 </script>
 
-<!-- Popup overlay for text tips -->
-<div id="tipPopup" class="popup" onclick="closeTip()">
-  <div class="popup-content" onclick="event.stopPropagation()">
-    <button class="close-btn" onclick="closeTip()">✕</button>
-    <div id="tipMessage" style="font-size: 1rem; line-height: 1.5;"></div>
-  </div>
-</div>
-
 <script>
-  // Copy to clipboard function (enhanced)
-  function copyToClipboard(id) {
-    const copyText = document.getElementById(id);
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.value);
-    const btn = copyText.nextElementSibling; 
-    if (btn && btn.classList.contains('copy-btn')) {
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '✓ Copied!';
-      setTimeout(() => { btn.innerHTML = originalText; }, 2000);
-    }
-  }
-
-  // Show tip from hidden div content
-  function showTip(tipId) {
-    const contentDiv = document.getElementById(tipId);
-    if (contentDiv) {
-      const message = contentDiv.innerHTML;
-      document.getElementById('tipMessage').innerHTML = message;
-      document.getElementById('tipPopup').style.display = 'flex';
-    }
-  }
-
-  function closeTip() {
-    document.getElementById('tipPopup').style.display = 'none';
-  }
-
-  // Next button: submit creative link to Formspree, then redirect to audience page
-  document.getElementById('nextBtn').addEventListener('click', function(e) {
+  // Optional: add any client-side validation before submit if needed
+  const form = document.getElementById('audienceForm');
+  form.addEventListener('submit', function(e) {
+    // no extra validation needed, browser handles required fields
+    // but we keep the default behavior (formspree post then redirect)
+    // Note: Formspree will redirect to its own thank you page by default.
+    // To keep the user inside our flow, we can intercept and redirect to next page (expectations.html)
     e.preventDefault();
-    const creativeInput = document.getElementById('creativeLink');
-    const creativeLink = creativeInput.value.trim();
-    if (!creativeLink) {
-      alert('Please provide a link to your creative assets (photos/videos). This helps us prepare effective ads.');
-      creativeInput.focus();
-      return;
-    }
-    // Validate URL format loosely
-    if (!creativeLink.match(/^https?:\/\//i)) {
-      alert('Please enter a valid URL starting with http:// or https://');
-      creativeInput.focus();
-      return;
-    }
-    // Submit the form via fetch to Formspree (to avoid page reload)
-    const form = document.getElementById('creativeForm');
     const formData = new FormData(form);
     fetch(form.action, {
       method: 'POST',
@@ -404,14 +290,13 @@
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        // After successful submission, redirect to audience page
-        window.location.href = 'audience.html';
+        window.location.href = 'expectations.html';
       } else {
-        alert('There was an issue submitting the link. Please try again or contact support.');
+        alert('There was an issue submitting the form. Please try again or contact support.');
       }
     }).catch(error => {
       console.error('Error:', error);
-      alert('Network error. Please check your connection and try again.');
+      alert('Network error. Please check your connection.');
     });
   });
 </script>
