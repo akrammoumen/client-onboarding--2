@@ -4,7 +4,9 @@
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Access Setup - MOBEK MEDIA</title>
+  <title>Access Setup | MOBEK MEDIA</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -12,22 +14,7 @@
       --gold-primary: #e3ad55;
       --gold-secondary: #d89b3f;
       --deep-teal: #1a5f7a;
-      --light-teal: #2d8da8;
       --dark-charcoal: #1f2937;
-      --light-cream: #f8f5f0;
-      --pure-white: #ffffff;
-      --soft-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-      background: var(--light-cream);
-      color: var(--dark-charcoal);
-      padding-top: 140px;
-      padding-bottom: 100px;
     }
 
     .agency-header {
@@ -38,144 +25,150 @@
       background: linear-gradient(135deg, var(--deep-teal), #144d63);
       padding: 15px 5%;
       z-index: 1000;
-      box-shadow: var(--soft-shadow);
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
     }
 
     .agency-logo {
-      height: 50px;
+      height: 45px;
       border: 3px solid var(--gold-primary);
       border-radius: 8px;
-      padding: 2px;
       background: white;
     }
 
     .agency-name {
       color: white;
       font-weight: 700;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
-    h1 {
-      text-align: center;
-      color: var(--deep-teal);
-      margin-bottom: 10px;
-    }
-
-    p {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .box {
-      background: var(--light-cream);
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-left: 4px solid var(--gold-primary);
-      box-shadow: var(--soft-shadow);
-    }
-
-    .box strong {
-      color: var(--deep-teal);
-    }
-
-    input {
+    .progress-container {
+      position: fixed;
+      top: 80px;
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: 1px solid #ddd;
+      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      padding: 15px 0;
+      z-index: 999;
     }
 
-    .copy-btn {
-      margin-top: 10px;
-      background: var(--gold-primary);
-      border: none;
-      padding: 8px 15px;
-      border-radius: 6px;
+    .progress-steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .step {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .step.active {
+      color: white;
       font-weight: bold;
-      cursor: pointer;
+      border-bottom: 3px solid var(--gold-primary);
     }
 
-    .note {
-      text-align: center;
-      margin-top: 20px;
+    .form-container {
+      margin-top: 140px;
+      margin-bottom: 100px;
+    }
+
+    .tip {
+      font-size: 0.9rem;
       color: #6b7280;
-      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: bold;
     }
   </style>
 </head>
 
-<body>
+<body class="bg-gray-50">
 
+<!-- Header -->
 <header class="agency-header">
   <img src="mobek_agency.png" class="agency-logo">
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
-<h1>Grant Access for Campaign Setup</h1>
-<p>Please follow the steps below to grant full access. This allows us to launch your campaigns within 24–48 hours.</p>
-
-<!-- META -->
-<div class="box">
-  <strong>Step 1: Business Manager Access</strong><br><br>
-  Add this ID as Partner:
-  <input id="metaID" value="123456789012345" readonly>
-  <button class="copy-btn" onclick="copyToClipboard('metaID')">Copy ID</button>
+<!-- Progress -->
+<div class="progress-container">
+  <div class="progress-steps">
+    <div class="step">Welcome</div>
+    <div class="step active">Access</div>
+    <div class="step">Audience</div>
+    <div class="step">Strategy</div>
+    <div class="step">Thank You</div>
+  </div>
 </div>
 
-<!-- PAGE -->
-<div class="box">
-  <strong>Step 2: Facebook Page Access</strong><br><br>
-  Go to Page Settings → Page Access → Add Partner<br>
-  Give FULL CONTROL access
-</div>
+<!-- Content -->
+<div class="form-container max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow">
 
-<!-- AD ACCOUNT -->
-<div class="box">
-  <strong>Step 3: Ad Account Access</strong><br><br>
-  Go to Ads Manager → Account Settings → Add Partner<br>
-  Give ADMIN access
-</div>
+<h1 class="text-3xl font-bold text-center mb-6">🔐 Grant Access</h1>
 
-<!-- PIXEL -->
-<div class="box">
-  <strong>Step 4: Pixel Access</strong><br><br>
-  Open Events Manager → Select Pixel → Assign Partner<br>
-  Required for tracking conversions
-</div>
-
-<!-- INSTAGRAM -->
-<div class="box">
-  <strong>Step 5: Instagram Account Access</strong><br><br>
-  Make sure Instagram is connected to Business Manager<br>
-  If not → Add it under Instagram Accounts section
-</div>
-
-<!-- CONTENT -->
-<div class="box">
-  <strong>Step 6: Content & Assets</strong><br><br>
-  Please provide:<br><br>
-  ✔ Product photos (kitchens)<br>
-  ✔ Project videos<br>
-  ✔ Catalog / designs<br><br>
-  Send via Google Drive or any link
-</div>
-
-<p class="note">
-All steps are required to ensure proper setup and accurate tracking.
+<p class="text-center mb-8 text-gray-600">
+Please complete the steps below so we can launch your campaigns within 24–48 hours.
 </p>
 
-<script>
-function copyToClipboard(id) {
-  const copyText = document.getElementById(id);
-  navigator.clipboard.writeText(copyText.value);
-  alert("Copied successfully");
-}
+<!-- Meta Access -->
+<h2 class="text-xl font-bold mb-4">Meta Access</h2>
+
+<p><strong>1. Business Manager</strong> → Required: <b>Full Control</b></p>
+<p class="tip">Go to Partners → Add → Enter our Business ID</p>
+
+<p class="mt-4"><strong>2. Ad Account</strong> → Required: <b>Admin</b></p>
+<p class="tip">Ad Account Settings → Assign Partner</p>
+
+<p class="mt-4"><strong>3. Facebook Page</strong> → Required: <b>Full Control</b></p>
+
+<p class="mt-4"><strong>4. Pixel (if available)</strong> → Required: <b>Full Access</b></p>
+
+<p class="mt-4"><strong>5. Instagram (if applicable)</strong></p>
+<p class="tip">Make sure it is connected to Business Manager</p>
+
+<!-- Content -->
+<h2 class="text-xl font-bold mt-8 mb-4">📸 Content</h2>
+
+<p>Upload your content to Google Drive and paste the link below:</p>
+
+<input type="text" placeholder="Paste Google Drive link here..." class="w-full border p-3 rounded mt-3">
+
+<p class="tip">We recommend 10–20 project images + videos</p>
+
+<!-- Website -->
+<h2 class="text-xl font-bold mt-8 mb-4">🌐 Website (Optional)</h2>
+
+<p>Send login access via email:</p>
+
+<p class="mt-2 font-semibold">📧 access@mobekmedia.com</p>
+
+<p class="tip">This helps us install tracking and optimize performance</p>
+
+<!-- Navigation -->
+<div class="flex justify-between mt-10">
+  <a href="welcome.html" class="btn-primary">Back</a>
+  <a href="audience.html" class="btn-primary">Next</a>
+</div>
+
+</div>
+
+<!-- Tawk.to -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/688f950a8ba539192ec9c8c9/1j1odsd19';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
 
 </body>
