@@ -3,7 +3,7 @@
 <head>
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Access Setup | MOBEK MEDIA</title>
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -14,11 +14,15 @@
       --gold-primary: #e3ad55;
       --gold-secondary: #d89b3f;
       --deep-teal: #1a5f7a;
+      --light-teal: #2d8da8;
+      --dark-charcoal: #1f2937;
+      --light-cream: #f8f5f0;
     }
 
     .agency-header {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
       background: linear-gradient(135deg, var(--deep-teal), #144d63);
       padding: 15px 5%;
@@ -45,23 +49,21 @@
       position: fixed;
       top: 80px;
       width: 100%;
-      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      background: var(--deep-teal);
       padding: 15px 0;
+      z-index: 999;
     }
 
     .progress-steps {
       display: flex;
       justify-content: center;
       gap: 30px;
-    }
-
-    .step {
-      color: rgba(255,255,255,0.7);
+      color: white;
     }
 
     .step.active {
-      color: white;
       font-weight: bold;
+      border-bottom: 3px solid var(--gold-primary);
     }
 
     .form-container {
@@ -69,37 +71,37 @@
       margin-bottom: 100px;
     }
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-
     .btn-primary {
       background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      padding: 10px 20px;
-      border-radius: 10px;
+      padding: 12px 20px;
+      border-radius: 12px;
       font-weight: bold;
     }
 
     .tip {
+      display: none;
+      margin-top: 8px;
+      padding: 10px;
+      background: #f3f4f6;
+      border-radius: 10px;
       font-size: 0.9rem;
-      color: #6b7280;
+    }
+
+    .tip-btn {
+      cursor: pointer;
+      margin-left: 8px;
+      color: var(--gold-primary);
     }
   </style>
 </head>
 
 <body class="bg-gray-50">
 
-<!-- HEADER -->
 <header class="agency-header">
   <img src="mobek_agency.png" class="agency-logo">
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
-<!-- PROGRESS -->
 <div class="progress-container">
   <div class="progress-steps">
     <div class="step">Welcome</div>
@@ -110,75 +112,96 @@
   </div>
 </div>
 
-<!-- MAIN -->
-<div class="form-container max-w-3xl mx-auto p-6">
+<div class="form-container max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
 
-  <h1 class="text-2xl font-bold text-center mb-6">🔐 Grant Access</h1>
+<h1 class="text-3xl font-bold text-center mb-6">🔐 Grant Access</h1>
+<p class="text-center mb-8">Complete the steps below so we can launch your campaigns within 24–48 hours.</p>
 
-  <!-- META ACCESS -->
-  <div class="card">
-    <h2 class="font-bold mb-3">Meta Access</h2>
+<form action="https://formspree.io/f/xanbqzjl" method="POST" class="space-y-6">
 
-    <p>1. Business Manager → <strong>Full Control</strong></p>
-    <a href="https://business.facebook.com/settings/partners" target="_blank" class="text-blue-500">Open Settings</a>
-    <p class="tip">ⓘ Add Partner → Enter our Business ID</p>
+<!-- META -->
+<div>
+  <h2 class="text-xl font-semibold">Meta Access</h2>
 
-    <p class="mt-4">2. Facebook Page → <strong>Full Control</strong></p>
-    <a href="https://business.facebook.com/settings/pages" target="_blank" class="text-blue-500">Page Settings</a>
+  <p class="mt-2">
+    👉 Required Roles: <b>Full Control (Business)</b>, <b>Admin (Ad Account)</b>
+    <span class="tip-btn" onclick="toggleTip('metaTip')">ⓘ</span>
+  </p>
 
-    <p class="mt-4">3. Ad Account → <strong>Admin</strong></p>
-    <a href="https://business.facebook.com/settings/ad-accounts" target="_blank" class="text-blue-500">Ad Account</a>
-
-    <p class="mt-4">4. Pixel → <strong>Full Access</strong></p>
-    <a href="https://business.facebook.com/events_manager" target="_blank" class="text-blue-500">Events Manager</a>
+  <div id="metaTip" class="tip">
+    Go to Business Manager → Partners → Add → Enter our ID → Enable Full Control on all assets.
   </div>
 
-  <!-- INSTAGRAM -->
-  <div class="card">
-    <h2 class="font-bold mb-2">Instagram Access</h2>
-    <p>Connect your Instagram account and grant <strong>Full Access</strong></p>
+  <a href="https://business.facebook.com/settings/partners" target="_blank" class="btn-primary mt-3 inline-block">
+    Open Meta Business Manager
+  </a>
+</div>
+
+<!-- INSTAGRAM -->
+<div>
+  <h2 class="text-xl font-semibold">Instagram Access</h2>
+
+  <p>
+    👉 Required: <b>Connected to Meta + Full Access</b>
+    <span class="tip-btn" onclick="toggleTip('igTip')">ⓘ</span>
+  </p>
+
+  <div id="igTip" class="tip">
+    Make sure your Instagram is linked inside Business Manager.
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div>
+  <h2 class="text-xl font-semibold">Content (Images & Videos)</h2>
+
+  <p>
+    Paste your Google Drive / Dropbox link
+    <span class="tip-btn" onclick="toggleTip('contentTip')">ⓘ</span>
+  </p>
+
+  <div id="contentTip" class="tip">
+    Upload 10–20 project images + videos. High quality = better results.
   </div>
 
-  <!-- CONTENT -->
-  <div class="card">
-    <h2 class="font-bold mb-2">📸 Content</h2>
-    <p class="mb-2">Upload images/videos to Google Drive and paste link:</p>
+  <input type="text" name="content-link" placeholder="Drive link..." class="w-full border p-3 rounded-lg">
+</div>
 
-    <input id="driveLink" type="text" placeholder="Paste Google Drive link..."
-      class="w-full border p-3 rounded-lg">
-  </div>
+<!-- WEBSITE -->
+<div>
+  <h2 class="text-xl font-semibold">Website Access (Optional)</h2>
 
-  <!-- WEBSITE -->
-  <div class="card">
-    <h2 class="font-bold mb-2">🌐 Website (Optional)</h2>
-    <p>Send access via email:</p>
-    <p class="font-semibold">access@mobekmedia.com</p>
-  </div>
+  <p>
+    Send login details via email: <b>access@mobekmedia.com</b>
+    <span class="tip-btn" onclick="toggleTip('siteTip')">ⓘ</span>
+  </p>
 
-  <!-- NAV -->
-  <div class="flex justify-between mt-6">
-    <a href="index.html" class="btn-primary">Back</a>
-    <button id="nextBtn" class="btn-primary">Next</button>
+  <div id="siteTip" class="tip">
+    This helps us install tracking and improve conversions.
   </div>
+</div>
+
+<button type="submit" class="btn-primary w-full mt-4">Submit</button>
+
+</form>
+
+<div class="flex justify-between mt-8">
+  <a href="index.html" class="btn-primary">Back</a>
+  <a href="audience.html" class="btn-primary">Next</a>
+</div>
 
 </div>
 
-<!-- SCRIPT -->
 <script>
-document.getElementById("nextBtn").addEventListener("click", function() {
-
-  const driveLink = document.getElementById("driveLink").value;
-
-  // تخزين الرابط لاستخدامه في audience
-  localStorage.setItem("driveLink", driveLink);
-
-  window.location.href = "audience.html";
-});
+function toggleTip(id){
+  let el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
 </script>
 
-<!-- TAWK -->
-<script>
-var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
+<!-- Tawk -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
