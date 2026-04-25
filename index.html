@@ -21,9 +21,10 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       background: var(--light-cream);
+      color: var(--dark-charcoal);
       min-height: 100vh;
     }
-    /* Agency header (مطابق لصفحة audience) */
+    /* Agency header (identical to audience page) */
     .agency-header {
       position: fixed;
       top: 0;
@@ -88,7 +89,7 @@
       background: var(--gold-primary);
       border-radius: 3px;
     }
-    /* Cards style (كما هي من الكود الأصلي) */
+    /* Card style (original from given code) */
     .card {
       background: var(--pure-white);
       border-left: 4px solid var(--gold-primary);
@@ -102,8 +103,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
     }
     .step-link {
       display: inline-block;
@@ -115,11 +114,11 @@
       font-weight: bold;
       text-decoration: none;
       box-shadow: 0 4px 10px rgba(227, 173, 85, 0.3);
-      margin-right: 10px;
-      transition: 0.2s;
+      transition: all 0.2s ease;
     }
     .step-link:hover {
       transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(227, 173, 85, 0.4);
     }
     .copy-btn {
       background: var(--gold-primary);
@@ -128,57 +127,70 @@
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
-      margin-left: 10px;
       transition: 0.2s;
     }
+    .copy-btn:hover {
+      background: var(--gold-secondary);
+    }
+    /* tip button (replaces image buttons) */
     .tip-btn {
       background: var(--deep-teal);
       color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
+      padding: 8px 16px;
+      border-radius: 8px;
       cursor: pointer;
-      margin-left: 10px;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      font-size: 0.9rem;
+      border: none;
+      margin-top: 8px;
+      transition: 0.2s;
     }
-    .tip-modal {
+    .tip-btn:hover {
+      background: var(--light-teal);
+    }
+    /* popup for tips */
+    .popup {
       display: none;
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
       justify-content: center;
       align-items: center;
       z-index: 2000;
     }
-    .tip-content {
+    .popup-content {
       background: white;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 400px;
-      border-left: 5px solid var(--gold-primary);
+      padding: 25px;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.3);
       position: relative;
+      border-left: 5px solid var(--gold-primary);
     }
-    .close-tip {
+    .close-btn {
       position: absolute;
-      top: 10px;
-      right: 15px;
+      top: 12px;
+      right: 12px;
       background: var(--gold-primary);
       border: none;
+      color: var(--dark-charcoal);
       font-weight: bold;
-      cursor: pointer;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      width: 28px;
+      cursor: pointer;
+      font-size: 18px;
     }
     .form-input {
       border: 1px solid #e2e8f0;
       border-radius: 12px;
-      padding: 12px;
-      width: 100%;
+      padding: 14px 16px;
       transition: all 0.3s ease;
+      width: 100%;
     }
     .form-input:focus {
       border-color: var(--gold-primary);
@@ -192,28 +204,36 @@
       padding: 12px 24px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(227, 173, 85, 0.3);
-      transition: 0.3s;
-      display: inline-block;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
       border: none;
       cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(227, 173, 85, 0.4);
     }
     .nav-buttons {
       display: flex;
       justify-content: space-between;
-      margin-top: 30px;
+      margin-top: 40px;
+      gap: 20px;
     }
-    .required-badge {
-      background: #fef3c7;
-      color: #b45309;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
+    /* Responsive */
     @media (max-width: 768px) {
-      .progress-steps { gap: 15px; font-size: 0.8rem; }
-      .agency-logo { height: 35px; }
-      .card { padding: 18px; }
+      .agency-header {
+        padding: 10px 5%;
+      }
+      .agency-logo {
+        height: 35px;
+      }
+      .progress-steps {
+        gap: 15px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -224,6 +244,7 @@
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
+<!-- Progress bar (same as audience) -->
 <div class="progress-container">
   <div class="progress-steps">
     <div class="step">Welcome</div>
@@ -234,87 +255,81 @@
   </div>
 </div>
 
-<div class="max-w-4xl mx-auto px-4" style="margin-top: 160px; margin-bottom: 100px;">
+<!-- Main content -->
+<div class="max-w-3xl w-full mx-auto px-4" style="margin-top: 160px; margin-bottom: 100px;">
   
-  <!-- مستوى الوصول المطلوب -->
-  <div class="card">
-    <h2><i class="fas fa-shield-alt"></i> Required Access Level</h2>
-    <p><span class="required-badge"><i class="fas fa-star"></i> Admin / Partner Access</span></p>
-    <p class="mt-2">To start optimizing your campaigns, my team needs <strong>Admin access</strong> in Meta Business Manager (or Partner role) and <strong>Editor/Admin</strong> on your website platform. This allows us to install pixels, manage ad accounts, and access creative assets.</p>
-    <button class="tip-btn" onclick="showTip('adminTip')"><i class="fas fa-lightbulb"></i> Why Admin?</button>
-  </div>
+  <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">🔐 Grant Us Access in Just a Few Steps</h1>
+  <p class="text-center text-gray-600 mb-8">We need the right permissions to start driving results for your kitchen & furniture brand.</p>
 
-  <!-- Meta Access Card (مع الاحتفاظ بكل الصلاحيات المنفصلة + زر واحد) -->
+  <!-- Meta Access Card -->
   <div class="card">
-    <h2><i class="fab fa-facebook-square"></i> Meta Access</h2>
-    <p><strong>1. Add our Business Manager ID:</strong></p>
-    <div>
-      <input id="metaID" value="123456789012345" readonly style="padding:8px; border-radius:6px; border:1px solid #ccc; width:auto;">
+    <h2><i class="fab fa-facebook-square"></i> Meta Access (Business Manager)</h2>
+    <p><strong>1. Add our partner ID to your Business Manager:</strong></p>
+    <div class="flex flex-wrap items-center gap-3 mb-3">
+      <input id="metaID" value="123456789012345" readonly class="border rounded px-3 py-2 bg-gray-100 flex-1">
       <button class="copy-btn" onclick="copyToClipboard('metaID')">📋 Copy ID</button>
-      <button class="tip-btn" onclick="showTip('addBMtip')"><i class="fas fa-question-circle"></i> How to add</button>
     </div>
-    <div class="mt-3 flex flex-wrap gap-2">
-      <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank"><i class="fab fa-facebook"></i> Go to Business Manager</a>
-      <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank"><i class="fas fa-file-alt"></i> Page Access</a>
-      <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank"><i class="fas fa-chart-line"></i> Ad Account</a>
-      <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank"><i class="fas fa-code"></i> Pixel / Events</a>
-      <a class="step-link" href="https://business.facebook.com/settings/instagram-accounts" target="_blank"><i class="fab fa-instagram"></i> Instagram Account</a>
+    <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank"><i class="fas fa-external-link-alt"></i> Go to Business Manager</a>
+    <button class="tip-btn" onclick="showTip('metaTip')"><i class="fas fa-lightbulb"></i> Tip: Required permission level</button>
+    <div style="display: none;" id="metaTip">
+      <strong>What access we need:</strong> We require <strong>Admin or Manage Ad Accounts</strong> access to your Business Manager. This allows us to create ads, manage pixels, and view analytics. Don't worry — we never touch billing info.
     </div>
-    <p class="text-sm text-gray-600 mt-2"><i class="fas fa-info-circle"></i> You can use the single link above to grant all permissions, or the individual buttons.</p>
-    <button class="tip-btn" onclick="showTip('metaPermissionsTip')"><i class="fas fa-tasks"></i> What permissions exactly?</button>
+
+    <p class="mt-4"><strong>2. Grant access to your Facebook Page:</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank"><i class="fas fa-th-large"></i> Page Settings</a>
+    <button class="tip-btn" onclick="showTip('pageTip')"><i class="fas fa-lightbulb"></i> Tip: Page role needed</button>
+    <div style="display: none;" id="pageTip">We need <strong>Advertiser or Admin</strong> role on the Page. This lets us boost posts and run Page-Like campaigns.</div>
+
+    <p class="mt-4"><strong>3. Grant access to your Ad Account:</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank"><i class="fas fa-chart-line"></i> Ad Account Settings</a>
+    <button class="tip-btn" onclick="showTip('adTip')"><i class="fas fa-lightbulb"></i> Tip: Ad account level</button>
+    <div style="display: none;" id="adTip">We require <strong>Manage Campaigns</strong> permission. We never request billing permissions.</div>
+
+    <p class="mt-4"><strong>4. Pixel Access (Events Manager):</strong></p>
+    <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank"><i class="fas fa-code"></i> Events Manager</a>
+    <button class="tip-btn" onclick="showTip('pixelTip')"><i class="fas fa-lightbulb"></i> Tip: Pixel permissions</button>
+    <div style="display: none;" id="pixelTip">Assign our partner ID with <strong>Manage Pixels</strong> access so we can install and optimize conversion events.</div>
+
+    <p class="mt-4"><strong>5. Instagram Business Account (if connected to BM):</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/instagram-accounts" target="_blank"><i class="fab fa-instagram"></i> Instagram Accounts</a>
+    <button class="tip-btn" onclick="showTip('igTip')"><i class="fas fa-lightbulb"></i> Tip: Instagram access</button>
+    <div style="display: none;" id="igTip">If your Instagram is linked to your Business Manager, please add us as a <strong>Partner</strong> with "Manage Advertisements" permission. If not yet connected, connect it first (Settings → Instagram Accounts).</div>
   </div>
 
-  <!-- طلب Instagram (حقل إضافي) -->
-  <div class="card">
-    <h2><i class="fab fa-instagram"></i> Instagram Business Account</h2>
-    <p>Please share your Instagram Business handle and ensure it's connected to your Facebook Page.</p>
-    <input type="text" id="instagramHandle" class="form-input" placeholder="@your_business_handle" style="max-width: 300px;">
-    <button class="tip-btn" onclick="showTip('instagramTip')"><i class="fas fa-link"></i> Why Instagram?</button>
-  </div>
-
-  <!-- طلب رابط المحتوى (صور وفيديوهات) - دمج مع formspree وإرسال مع next -->
-  <div class="card">
-    <h2><i class="fas fa-folder-open"></i> Creative Assets (Images & Videos)</h2>
-    <p>Provide a link to your Google Drive, Dropbox, or any folder containing product images, videos, and brand assets.</p>
-    <input type="url" id="contentLink" class="form-input" placeholder="https://drive.google.com/..." style="max-width: 100%;">
-    <button class="tip-btn" onclick="showTip('contentTip')"><i class="fas fa-cloud-upload-alt"></i> Best practices for assets</button>
-  </div>
-
-  <!-- Website Access (محسّن بدون أزرار، نص واضح) -->
+  <!-- Website & Landing Pages Card (simplified, no platform buttons) -->
   <div class="card">
     <h2><i class="fas fa-globe"></i> Website / Landing Page Access</h2>
-    <p>We need admin or editor access to your website platform to install tracking pixels and optimize landing pages. Please add our email as a user, or share temporary login via the email below.</p>
-    <div class="mt-2">
-      <input id="emailCopy" value="akram@mobekmedia.site" readonly style="padding:8px; border-radius:6px; border:1px solid #ccc;">
+    <p>We need access to your website or landing page platform to install tracking pixels (Meta, Google) and optimize conversion paths.</p>
+    <p class="mt-2"><strong>How to provide access:</strong> Add our team email <strong>akram@mobekmedia.site</strong> as an administrator or editor on your platform (WordPress, Shopify, Webflow, Unbounce, Wix, etc.). Alternatively, share a temporary login via a secure password manager (we recommend 1Password).</p>
+    <div class="mt-3 flex items-center gap-3">
+      <input id="emailCopy" value="akram@mobekmedia.site" readonly class="border rounded px-3 py-2 bg-gray-100 flex-1">
       <button class="copy-btn" onclick="copyToClipboard('emailCopy')">📋 Copy Email</button>
     </div>
-    <p class="text-sm text-gray-500 mt-2"><i class="fas fa-lock"></i> We respect your privacy. Access will be removed after campaign setup.</p>
-    <button class="tip-btn" onclick="showTip('websiteTip')"><i class="fas fa-question-circle"></i> Which platforms?</button>
+    <button class="tip-btn mt-3" onclick="showTip('websiteTip')"><i class="fas fa-lightbulb"></i> Tip: What we exactly need</button>
+    <div style="display: none;" id="websiteTip">We need <strong>admin or developer access</strong> to insert Meta Pixel, Conversions API, and custom audiences. Don't worry — we only touch tracking scripts and never modify content/pricing.</div>
   </div>
 
-  <!-- نموذج Formspree مخفي يرسل البيانات مع next -->
-  <form id="accessForm" action="https://formspree.io/f/xanbqzjl" method="POST" style="display: none;">
-    <input type="hidden" name="instagram_handle" id="hiddenInstagram">
-    <input type="hidden" name="content_link" id="hiddenContent">
-    <input type="hidden" name="access_completed" value="true">
-  </form>
+  <!-- Creative assets link (integrated with Next button via Formspree) -->
+  <div class="card">
+    <h2><i class="fas fa-photo-video"></i> Creative Assets (Images & Videos)</h2>
+    <p>Please share a link to your product photos, videos, and any brand assets (Google Drive, Dropbox, OneDrive, or shared folder).</p>
+    <form id="creativeForm" action="https://formspree.io/f/xanbqzjl" method="POST" class="mt-3">
+      <input type="hidden" name="_subject" value="New Creative Assets Link from Client">
+      <input type="url" name="creative-link" id="creativeLink" class="form-input" placeholder="e.g., https://drive.google.com/... or https://dropbox.com/..." required>
+      <div class="text-sm text-gray-500 mt-2">We'll use these visuals to create high-converting ad creatives.</div>
+    </form>
+    <button class="tip-btn mt-3" onclick="showTip('creativeTip')"><i class="fas fa-lightbulb"></i> Tip: Best practices</button>
+    <div style="display: none;" id="creativeTip">Include lifestyle images, before/after kitchen shots, and short demo videos (15-30 sec). High resolution preferred. Folders organized by product category help us work faster.</div>
+  </div>
 
-  <!-- أزرار التنقل (Back و Next) -->
+  <!-- Navigation Buttons: Previous, Next (Next submits creative form + proceeds) -->
   <div class="nav-buttons">
-    <a href="index.html" class="btn-primary"><i class="fas fa-arrow-left mr-2"></i> Previous</a>
-    <button id="nextBtn" class="btn-primary"><i class="fas fa-paper-plane mr-2"></i> Next & Submit Access</button>
+    <a href="index.html" class="btn-primary"><i class="fas fa-arrow-left"></i> Previous</a>
+    <button id="nextBtn" class="btn-primary">Next <i class="fas fa-arrow-right"></i></button>
   </div>
 </div>
 
-<!-- Tip Modals (نصوص توجيهية) -->
-<div id="tipModal" class="tip-modal" onclick="closeTip()">
-  <div class="tip-content" onclick="event.stopPropagation()">
-    <button class="close-tip" onclick="closeTip()">✕</button>
-    <div id="tipText"><strong>Tip:</strong> Ensure you give Admin role to our partner ID 123456789012345.</div>
-  </div>
-</div>
-
-<!-- Tawk.to (مثل audience) -->
+<!-- Tawk.to Integration (same as audience) -->
 <script type="text/javascript">
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
   (function(){
@@ -327,85 +342,78 @@
   })();
 </script>
 
+<!-- Popup overlay for text tips -->
+<div id="tipPopup" class="popup" onclick="closeTip()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="closeTip()">✕</button>
+    <div id="tipMessage" style="font-size: 1rem; line-height: 1.5;"></div>
+  </div>
+</div>
+
 <script>
-  // دالة نسخ
+  // Copy to clipboard function (enhanced)
   function copyToClipboard(id) {
     const copyText = document.getElementById(id);
     copyText.select();
+    copyText.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(copyText.value);
-    const btn = copyText.nextElementSibling;
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '✓ Copied!';
-    setTimeout(() => btn.innerHTML = originalText, 2000);
+    const btn = copyText.nextElementSibling; 
+    if (btn && btn.classList.contains('copy-btn')) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ Copied!';
+      setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+    }
   }
 
-  // Tips النصية
-  function showTip(tipKey) {
-    const modal = document.getElementById('tipModal');
-    const tipDiv = document.getElementById('tipText');
-    let message = "";
-    switch(tipKey) {
-      case 'adminTip':
-        message = "<strong>Why Admin?</strong><br>Admin access allows us to assign pixels, create audiences, and manage ad accounts without constant approval requests. It's standard for marketing agencies.";
-        break;
-      case 'addBMtip':
-        message = "<strong>How to add our ID:</strong><br>Go to Business Manager → Partners → Add new partner → Enter ID <strong>123456789012345</strong> → Choose 'Manage Ad Accounts and Pages' → Send.";
-        break;
-      case 'metaPermissionsTip':
-        message = "<strong>Required permissions:</strong><br>• Facebook Page (Admin)<br>• Ad Account (Admin)<br>• Pixel (Manage)<br>• Instagram Business (Manage)<br>• Catalog (if any)";
-        break;
-      case 'instagramTip':
-        message = "<strong>Why Instagram?</strong><br>We target high-intent users on Instagram for furniture & kitchen renovation ads. We'll need access to your Instagram Business account for ad placement and insights.";
-        break;
-      case 'contentTip':
-        message = "<strong>Best practices for assets:</strong><br>High-res images (minimum 1080x1080), short videos (15-30 sec), lifestyle shots, and before/after kitchen transformations.";
-        break;
-      case 'websiteTip':
-        message = "<strong>Supported platforms:</strong><br>Shopify, WordPress, Webflow, Wix, Squarespace, Unbounce. If you use another CMS, just share admin login credentials via email (temporary).";
-        break;
-      default:
-        message = "Please ensure you provide all required access to avoid delays.";
+  // Show tip from hidden div content
+  function showTip(tipId) {
+    const contentDiv = document.getElementById(tipId);
+    if (contentDiv) {
+      const message = contentDiv.innerHTML;
+      document.getElementById('tipMessage').innerHTML = message;
+      document.getElementById('tipPopup').style.display = 'flex';
     }
-    tipDiv.innerHTML = message;
-    modal.style.display = 'flex';
   }
 
   function closeTip() {
-    document.getElementById('tipModal').style.display = 'none';
+    document.getElementById('tipPopup').style.display = 'none';
   }
 
-  // دمج الإرسال إلى Formspree مع الانتقال إلى الصفحة التالية (audience.html)
+  // Next button: submit creative link to Formspree, then redirect to audience page
   document.getElementById('nextBtn').addEventListener('click', function(e) {
     e.preventDefault();
-    // جمع البيانات من الحقول الإضافية
-    const instagram = document.getElementById('instagramHandle').value.trim();
-    const contentLink = document.getElementById('contentLink').value.trim();
-    
-    // تعبئة الحقول المخفية في الفورم
-    document.getElementById('hiddenInstagram').value = instagram || "Not provided";
-    document.getElementById('hiddenContent').value = contentLink || "Not provided";
-    
-    // إرسال الفورم عبر Formspree بطريقة غير متزامنة حتى لا يغادر الصفحة
-    const form = document.getElementById('accessForm');
+    const creativeInput = document.getElementById('creativeLink');
+    const creativeLink = creativeInput.value.trim();
+    if (!creativeLink) {
+      alert('Please provide a link to your creative assets (photos/videos). This helps us prepare effective ads.');
+      creativeInput.focus();
+      return;
+    }
+    // Validate URL format loosely
+    if (!creativeLink.match(/^https?:\/\//i)) {
+      alert('Please enter a valid URL starting with http:// or https://');
+      creativeInput.focus();
+      return;
+    }
+    // Submit the form via fetch to Formspree (to avoid page reload)
+    const form = document.getElementById('creativeForm');
     const formData = new FormData(form);
-    
     fetch(form.action, {
       method: 'POST',
       body: formData,
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        // بعد النجاح، ننتقل إلى صفحة audience
+        // After successful submission, redirect to audience page
         window.location.href = 'audience.html';
       } else {
-        alert('There was an issue submitting your access details. Please try again or contact support.');
+        alert('There was an issue submitting the link. Please try again or contact support.');
       }
     }).catch(error => {
       console.error('Error:', error);
-      alert('Network error. Please check connection and try again.');
+      alert('Network error. Please check your connection and try again.');
     });
   });
 </script>
-
 </body>
 </html>
