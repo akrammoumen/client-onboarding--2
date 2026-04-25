@@ -14,13 +14,11 @@
       --gold-primary: #e3ad55;
       --gold-secondary: #d89b3f;
       --deep-teal: #1a5f7a;
-      --dark-charcoal: #1f2937;
     }
 
     .agency-header {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       background: linear-gradient(135deg, var(--deep-teal), #144d63);
       padding: 15px 5%;
@@ -39,7 +37,7 @@
 
     .agency-name {
       color: white;
-      font-weight: 700;
+      font-weight: bold;
       font-size: 1.5rem;
     }
 
@@ -49,7 +47,6 @@
       width: 100%;
       background: linear-gradient(135deg, var(--deep-teal), #144d63);
       padding: 15px 0;
-      z-index: 999;
     }
 
     .progress-steps {
@@ -65,7 +62,6 @@
     .step.active {
       color: white;
       font-weight: bold;
-      border-bottom: 3px solid var(--gold-primary);
     }
 
     .form-container {
@@ -73,30 +69,37 @@
       margin-bottom: 100px;
     }
 
-    .tip {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-top: 5px;
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      padding: 12px 24px;
-      border-radius: 12px;
+      padding: 10px 20px;
+      border-radius: 10px;
       font-weight: bold;
+    }
+
+    .tip {
+      font-size: 0.9rem;
+      color: #6b7280;
     }
   </style>
 </head>
 
 <body class="bg-gray-50">
 
-<!-- Header -->
+<!-- HEADER -->
 <header class="agency-header">
   <img src="mobek_agency.png" class="agency-logo">
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
-<!-- Progress -->
+<!-- PROGRESS -->
 <div class="progress-container">
   <div class="progress-steps">
     <div class="step">Welcome</div>
@@ -107,66 +110,79 @@
   </div>
 </div>
 
-<!-- Content -->
-<div class="form-container max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow">
+<!-- MAIN -->
+<div class="form-container max-w-3xl mx-auto p-6">
 
-<h1 class="text-3xl font-bold text-center mb-6">🔐 Grant Access</h1>
+  <h1 class="text-2xl font-bold text-center mb-6">🔐 Grant Access</h1>
 
-<p class="text-center mb-8 text-gray-600">
-Please complete the steps below so we can launch your campaigns within 24–48 hours.
-</p>
+  <!-- META ACCESS -->
+  <div class="card">
+    <h2 class="font-bold mb-3">Meta Access</h2>
 
-<!-- Meta Access -->
-<h2 class="text-xl font-bold mb-4">Meta Access</h2>
+    <p>1. Business Manager → <strong>Full Control</strong></p>
+    <a href="https://business.facebook.com/settings/partners" target="_blank" class="text-blue-500">Open Settings</a>
+    <p class="tip">ⓘ Add Partner → Enter our Business ID</p>
 
-<p><strong>1. Business Manager</strong> → Required: <b>Full Control</b></p>
-<p class="tip">Go to Partners → Add → Enter our Business ID</p>
+    <p class="mt-4">2. Facebook Page → <strong>Full Control</strong></p>
+    <a href="https://business.facebook.com/settings/pages" target="_blank" class="text-blue-500">Page Settings</a>
 
-<p class="mt-4"><strong>2. Ad Account</strong> → Required: <b>Admin</b></p>
-<p class="tip">Ad Account Settings → Assign Partner</p>
+    <p class="mt-4">3. Ad Account → <strong>Admin</strong></p>
+    <a href="https://business.facebook.com/settings/ad-accounts" target="_blank" class="text-blue-500">Ad Account</a>
 
-<p class="mt-4"><strong>3. Facebook Page</strong> → Required: <b>Full Control</b></p>
+    <p class="mt-4">4. Pixel → <strong>Full Access</strong></p>
+    <a href="https://business.facebook.com/events_manager" target="_blank" class="text-blue-500">Events Manager</a>
+  </div>
 
-<p class="mt-4"><strong>4. Pixel (if available)</strong> → Required: <b>Full Access</b></p>
+  <!-- INSTAGRAM -->
+  <div class="card">
+    <h2 class="font-bold mb-2">Instagram Access</h2>
+    <p>Connect your Instagram account and grant <strong>Full Access</strong></p>
+  </div>
 
-<p class="mt-4"><strong>5. Instagram (if applicable)</strong></p>
-<p class="tip">Make sure it is connected to Business Manager</p>
+  <!-- CONTENT -->
+  <div class="card">
+    <h2 class="font-bold mb-2">📸 Content</h2>
+    <p class="mb-2">Upload images/videos to Google Drive and paste link:</p>
 
-<!-- Content -->
-<h2 class="text-xl font-bold mt-8 mb-4">📸 Content</h2>
+    <input id="driveLink" type="text" placeholder="Paste Google Drive link..."
+      class="w-full border p-3 rounded-lg">
+  </div>
 
-<p>Upload your content to Google Drive and paste the link below:</p>
+  <!-- WEBSITE -->
+  <div class="card">
+    <h2 class="font-bold mb-2">🌐 Website (Optional)</h2>
+    <p>Send access via email:</p>
+    <p class="font-semibold">access@mobekmedia.com</p>
+  </div>
 
-<input type="text" placeholder="Paste Google Drive link here..." class="w-full border p-3 rounded mt-3">
+  <!-- NAV -->
+  <div class="flex justify-between mt-6">
+    <a href="index.html" class="btn-primary">Back</a>
+    <button id="nextBtn" class="btn-primary">Next</button>
+  </div>
 
-<p class="tip">We recommend 10–20 project images + videos</p>
-
-<!-- Website -->
-<h2 class="text-xl font-bold mt-8 mb-4">🌐 Website (Optional)</h2>
-
-<p>Send login access via email:</p>
-
-<p class="mt-2 font-semibold">📧 access@mobekmedia.com</p>
-
-<p class="tip">This helps us install tracking and optimize performance</p>
-
-<!-- Navigation -->
-<div class="flex justify-between mt-10">
-  <a href="welcome.html" class="btn-primary">Back</a>
-  <a href="audience.html" class="btn-primary">Next</a>
 </div>
 
-</div>
+<!-- SCRIPT -->
+<script>
+document.getElementById("nextBtn").addEventListener("click", function() {
 
-<!-- Tawk.to -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  const driveLink = document.getElementById("driveLink").value;
+
+  // تخزين الرابط لاستخدامه في audience
+  localStorage.setItem("driveLink", driveLink);
+
+  window.location.href = "audience.html";
+});
+</script>
+
+<!-- TAWK -->
+<script>
+var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/688f950a8ba539192ec9c8c9/1j1odsd19';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
