@@ -1,212 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="robots" content="noindex, nofollow">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Access Setup | MOBEK MEDIA</title>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Access Setup | MOBEK MEDIA</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <style>
-    :root {
-      --gold-primary: #e3ad55;
-      --gold-secondary: #d89b3f;
-      --deep-teal: #1a5f7a;
-      --light-teal: #2d8da8;
-      --dark-charcoal: #1f2937;
-      --light-cream: #f8f5f0;
-    }
+<style>
+:root {
+  --gold-primary: #e3ad55;
+  --gold-secondary: #d89b3f;
+  --deep-teal: #1a5f7a;
+  --dark-charcoal: #1f2937;
+}
 
-    .agency-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(135deg, var(--deep-teal), #144d63);
-      padding: 15px 5%;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* Header */
+.agency-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--deep-teal), #144d63);
+  padding: 15px 5%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .agency-logo {
-      height: 45px;
-      border: 3px solid var(--gold-primary);
-      border-radius: 8px;
-      background: white;
-    }
+.agency-logo {
+  height: 45px;
+  border: 3px solid var(--gold-primary);
+  border-radius: 8px;
+  background: white;
+}
 
-    .agency-name {
-      color: white;
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
+.agency-name {
+  color: white;
+  font-weight: 700;
+}
 
-    .progress-container {
-      position: fixed;
-      top: 80px;
-      width: 100%;
-      background: var(--deep-teal);
-      padding: 15px 0;
-      z-index: 999;
-    }
+/* Progress */
+.progress-container {
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--deep-teal), #144d63);
+  padding: 15px 0;
+}
 
-    .progress-steps {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      color: white;
-    }
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
 
-    .step.active {
-      font-weight: bold;
-      border-bottom: 3px solid var(--gold-primary);
-    }
+.step { color: rgba(255,255,255,0.7); }
+.step.active { color: white; font-weight: bold; }
 
-    .form-container {
-      margin-top: 140px;
-      margin-bottom: 100px;
-    }
+/* Cards */
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  background: white;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: bold;
-    }
-
-    .tip {
-      display: none;
-      margin-top: 8px;
-      padding: 10px;
-      background: #f3f4f6;
-      border-radius: 10px;
-      font-size: 0.9rem;
-    }
-
-    .tip-btn {
-      cursor: pointer;
-      margin-left: 8px;
-      color: var(--gold-primary);
-    }
-  </style>
+/* Tooltip */
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  background: #1f2937;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  width: 220px;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+</style>
 </head>
 
 <body class="bg-gray-50">
 
+<!-- Header -->
 <header class="agency-header">
   <img src="mobek_agency.png" class="agency-logo">
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
+<!-- Progress -->
 <div class="progress-container">
   <div class="progress-steps">
     <div class="step">Welcome</div>
     <div class="step active">Access</div>
     <div class="step">Audience</div>
     <div class="step">Strategy</div>
-    <div class="step">Thank You</div>
+    <div class="step">Done</div>
   </div>
 </div>
 
-<div class="form-container max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
+<!-- Form -->
+<div class="max-w-3xl mx-auto mt-40 bg-white p-8 rounded-2xl shadow-xl">
 
 <h1 class="text-3xl font-bold text-center mb-6">🔐 Grant Access</h1>
-<p class="text-center mb-8">Complete the steps below so we can launch your campaigns within 24–48 hours.</p>
 
-<form action="https://formspree.io/f/xanbqzjl" method="POST" class="space-y-6">
+<form action="https://formspree.io/f/xanbqzjl" method="POST">
 
 <!-- META -->
-<div>
-  <h2 class="text-xl font-semibold">Meta Access</h2>
+<div class="card mb-6">
+<h2 class="font-bold mb-3">Meta Access</h2>
 
-  <p class="mt-2">
-    👉 Required Roles: <b>Full Control (Business)</b>, <b>Admin (Ad Account)</b>
-    <span class="tip-btn" onclick="toggleTip('metaTip')">ⓘ</span>
-  </p>
+<p>Required Roles:</p>
+<ul class="mb-4">
+<li>Business Manager → <b>Full Control</b></li>
+<li>Ad Account → <b>Admin</b></li>
+<li>Page → <b>Full Control</b></li>
+<li>Pixel → <b>Full Access</b></li>
+</ul>
 
-  <div id="metaTip" class="tip">
-    Go to Business Manager → Partners → Add → Enter our ID → Enable Full Control on all assets.
-  </div>
+<a href="https://business.facebook.com/settings/partners" target="_blank" class="bg-yellow-400 px-4 py-2 rounded">
+Open Meta Settings
+</a>
 
-  <a href="https://business.facebook.com/settings/partners" target="_blank" class="btn-primary mt-3 inline-block">
-    Open Meta Business Manager
-  </a>
+<span class="tooltip ml-2">ⓘ
+<span class="tooltip-text">
+Add partner → Enter Business ID → Enable Full Control
+</span>
+</span>
 </div>
 
 <!-- INSTAGRAM -->
-<div>
-  <h2 class="text-xl font-semibold">Instagram Access</h2>
+<div class="card mb-6">
+<h2 class="font-bold mb-3">Instagram Access</h2>
+<p>Required: <b>Full Access</b></p>
 
-  <p>
-    👉 Required: <b>Connected to Meta + Full Access</b>
-    <span class="tip-btn" onclick="toggleTip('igTip')">ⓘ</span>
-  </p>
-
-  <div id="igTip" class="tip">
-    Make sure your Instagram is linked inside Business Manager.
-  </div>
+<span class="tooltip">ⓘ
+<span class="tooltip-text">
+Connect Instagram inside Business Manager → Accounts → Instagram
+</span>
+</span>
 </div>
 
 <!-- CONTENT -->
-<div>
-  <h2 class="text-xl font-semibold">Content (Images & Videos)</h2>
+<div class="card mb-6">
+<h2 class="font-bold mb-3">Content (Images & Videos)</h2>
 
-  <p>
-    Paste your Google Drive / Dropbox link
-    <span class="tip-btn" onclick="toggleTip('contentTip')">ⓘ</span>
-  </p>
+<label>Paste Google Drive / Dropbox Link</label>
+<input type="text" name="content_link" class="w-full border p-3 rounded mt-2" placeholder="https://drive.google.com/...">
 
-  <div id="contentTip" class="tip">
-    Upload 10–20 project images + videos. High quality = better results.
-  </div>
-
-  <input type="text" name="content-link" placeholder="Drive link..." class="w-full border p-3 rounded-lg">
+<span class="tooltip">ⓘ
+<span class="tooltip-text">
+Upload 10–20 project images + videos
+</span>
+</span>
 </div>
 
 <!-- WEBSITE -->
-<div>
-  <h2 class="text-xl font-semibold">Website Access (Optional)</h2>
+<div class="card mb-6">
+<h2 class="font-bold mb-3">Website Access (Optional)</h2>
 
-  <p>
-    Send login details via email: <b>access@mobekmedia.com</b>
-    <span class="tip-btn" onclick="toggleTip('siteTip')">ⓘ</span>
-  </p>
+<p>
+Send login access to:<br>
+<b>access@mobekmedia.com</b>
+</p>
 
-  <div id="siteTip" class="tip">
-    This helps us install tracking and improve conversions.
-  </div>
+<span class="tooltip">ⓘ
+<span class="tooltip-text">
+We may need access for tracking & optimization
+</span>
+</span>
 </div>
 
-<button type="submit" class="btn-primary w-full mt-4">Submit</button>
+<!-- NAV -->
+<div class="flex justify-between mt-8">
+<a href="welcome.html" class="bg-gray-200 px-6 py-2 rounded">Back</a>
+
+<button type="submit" class="bg-yellow-400 px-6 py-2 rounded">
+Next →
+</button>
+</div>
 
 </form>
-
-<div class="flex justify-between mt-8">
-  <a href="index.html" class="btn-primary">Back</a>
-  <a href="audience.html" class="btn-primary">Next</a>
 </div>
 
-</div>
-
+<!-- Tawk.to -->
 <script>
-function toggleTip(id){
-  let el = document.getElementById(id);
-  el.style.display = el.style.display === "block" ? "none" : "block";
-}
-</script>
-
-<!-- Tawk -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
 (function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
+var s1=document.createElement("script");
 s1.src='https://embed.tawk.to/688f950a8ba539192ec9c8c9/1j1odsd19';
-s0.parentNode.insertBefore(s1,s0);
+s1.async=true;
+document.body.appendChild(s1);
 })();
 </script>
 
