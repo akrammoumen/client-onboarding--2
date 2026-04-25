@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Step 4: Book Your Strategy Call | MOBEK MEDIA</title>
+  <title>Access Setup - MOBEK MEDIA</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -14,9 +15,16 @@
       --light-teal: #2d8da8;
       --dark-charcoal: #1f2937;
       --light-cream: #f8f5f0;
+      --pure-white: #ffffff;
+      --soft-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
-    
-    /* Agency header */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light-cream);
+      color: var(--dark-charcoal);
+      min-height: 100vh;
+    }
+    /* Agency header (identical to audience page) */
     .agency-header {
       position: fixed;
       top: 0;
@@ -30,19 +38,20 @@
       justify-content: space-between;
       align-items: center;
     }
-    
     .agency-logo {
       height: 45px;
+      border: 3px solid var(--gold-primary);
+      border-radius: 8px;
+      padding: 2px;
+      background-color: white;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
-    
     .agency-name {
       color: white;
       font-weight: 700;
       font-size: 1.5rem;
       letter-spacing: 0.5px;
     }
-    
     /* Progress bar */
     .progress-container {
       position: fixed;
@@ -54,26 +63,22 @@
       z-index: 999;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    
     .progress-steps {
       display: flex;
       justify-content: center;
       gap: 30px;
       padding: 0 20px;
     }
-    
     .step {
       color: rgba(255,255,255,0.7);
       font-weight: 500;
       position: relative;
       padding-bottom: 5px;
     }
-    
     .step.active {
       color: white;
       font-weight: 700;
     }
-    
     .step.active::after {
       content: '';
       position: absolute;
@@ -84,277 +89,331 @@
       background: var(--gold-primary);
       border-radius: 3px;
     }
-    
-    /* Chat button */
-    .chat-floating {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 1000;
+    /* Card style (original from given code) */
+    .card {
+      background: var(--pure-white);
+      border-left: 4px solid var(--gold-primary);
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: var(--soft-shadow);
     }
-    
-    .chat-button {
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      border: none;
-      box-shadow: 0 8px 20px rgba(227, 173, 85, 0.45);
-      cursor: pointer;
+    .card h2 {
+      color: var(--deep-teal);
       display: flex;
       align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      color: white;
-      font-size: 1.9rem;
-      animation: pulse 2s infinite;
+      gap: 10px;
     }
-    
-    .chat-button:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 10px 25px rgba(227, 173, 85, 0.65);
-    }
-    
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(227, 173, 85, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(227, 173, 85, 0);
-      }
-    }
-    
-    /* Main content */
-    .main-content {
-      margin-top: 140px;
-      margin-bottom: 100px;
-    }
-    
-    .form-container {
-      max-width: 600px;
-      width: 100%;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    .form-title {
-      color: var(--gold-primary);
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    
-    .form-description {
+    .step-link {
+      display: inline-block;
+      margin-top: 10px;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
       color: var(--dark-charcoal);
-      margin-bottom: 30px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(227, 173, 85, 0.3);
+      transition: all 0.2s ease;
     }
-    
+    .step-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(227, 173, 85, 0.4);
+    }
+    .copy-btn {
+      background: var(--gold-primary);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .copy-btn:hover {
+      background: var(--gold-secondary);
+    }
+    /* tip button (replaces image buttons) */
+    .tip-btn {
+      background: var(--deep-teal);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      border: none;
+      margin-top: 8px;
+      transition: 0.2s;
+    }
+    .tip-btn:hover {
+      background: var(--light-teal);
+    }
+    /* popup for tips */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .popup-content {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+      position: relative;
+      border-left: 5px solid var(--gold-primary);
+    }
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--gold-primary);
+      border: none;
+      color: var(--dark-charcoal);
+      font-weight: bold;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
     .form-input {
-      width: 100%;
-      padding: 15px;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
+      padding: 14px 16px;
       transition: all 0.3s ease;
+      width: 100%;
     }
-    
     .form-input:focus {
       border-color: var(--gold-primary);
       box-shadow: 0 0 0 3px rgba(227, 173, 85, 0.3);
+      outline: none;
     }
-    
-    .submit-btn {
+    .btn-primary {
       background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
       color: var(--dark-charcoal);
       font-weight: bold;
-      padding: 15px 30px;
+      padding: 12px 24px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(227, 173, 85, 0.3);
       transition: all 0.3s ease;
-      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
       border: none;
       cursor: pointer;
     }
-    
-    .submit-btn:hover {
+    .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(227, 173, 85, 0.4);
     }
-    
-    .note-text {
-      color: #6b7280;
-      font-size: 0.9rem;
-      margin-top: 15px;
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px;
     }
-    
-    /* Responsive design */
+    /* Responsive */
     @media (max-width: 768px) {
       .agency-header {
         padding: 10px 5%;
       }
-      
       .agency-logo {
         height: 35px;
       }
-      
       .progress-steps {
         gap: 15px;
         font-size: 0.9rem;
       }
-      
-      .main-content {
-        margin-top: 120px;
-        padding: 20px;
-      }
-      
-      .chat-button {
-        width: 60px;
-        height: 60px;
-        font-size: 1.6rem;
-      }
-      
-      .form-container {
-        padding: 20px;
-      }
-      
-      .form-title {
-        font-size: 1.8rem;
-      }
     }
   </style>
 </head>
-<body class="bg-gray-50">
-  <!-- Agency header -->
-  <header class="agency-header">
-    <img src="https://i.imgur.com/7nLmM5p.png" alt="MOBEK MEDIA Logo" class="agency-logo">
-    <div class="agency-name">MOBEK MEDIA</div>
-  </header>
+<body>
 
-  <!-- Progress bar -->
-  <div class="progress-container">
-    <div class="progress-steps">
-      <div class="step">Welcome</div>
-      <div class="step">Access</div>
-      <div class="step">Audience</div>
-      <div class="step active">Strategy</div>
-      <div class="step">Thank You</div>
+<header class="agency-header">
+  <img src="mobek_agency.png" alt="MOBEK MEDIA Logo" class="agency-logo">
+  <div class="agency-name">MOBEK MEDIA</div>
+</header>
+
+<!-- Progress bar (same as audience) -->
+<div class="progress-container">
+  <div class="progress-steps">
+    <div class="step">Welcome</div>
+    <div class="step active">Access</div>
+    <div class="step">Audience</div>
+    <div class="step">Strategy</div>
+    <div class="step">Thank You</div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="max-w-3xl w-full mx-auto px-4" style="margin-top: 160px; margin-bottom: 100px;">
+  
+  <h1 class="text-3xl font-bold mb-6 text-center text-gray-900">🔐 Grant Us Access in Just a Few Steps</h1>
+  <p class="text-center text-gray-600 mb-8">We need the right permissions to start driving results for your kitchen & furniture brand.</p>
+
+  <!-- Meta Access Card -->
+  <div class="card">
+    <h2><i class="fab fa-facebook-square"></i> Meta Access (Business Manager)</h2>
+    <p><strong>1. Add our partner ID to your Business Manager:</strong></p>
+    <div class="flex flex-wrap items-center gap-3 mb-3">
+      <input id="metaID" value="123456789012345" readonly class="border rounded px-3 py-2 bg-gray-100 flex-1">
+      <button class="copy-btn" onclick="copyToClipboard('metaID')">📋 Copy ID</button>
     </div>
-  </div>
-
-  <!-- Main content -->
-  <div class="main-content flex items-center justify-center p-6">
-    <div class="form-container text-center space-y-6">
-      <h1 class="form-title">📞 Book Your Strategy Call</h1>
-      <p class="form-description">Let's discuss your goals and make sure everything is ready to launch!</p>
-
-      <!-- Calendly iframe -->
-      <div class="calendly-container">
-        <iframe src="https://calendly.com/extramoumen/strategy-session" class="w-full h-96 rounded-xl shadow" frameborder="0"></iframe>
-      </div>
-
-      <!-- Email submission form -->
-      <form id="finalForm" class="space-y-4">
-        <div class="text-left">
-          <label for="email" class="block mb-2 font-semibold text-gray-800">
-            <i class="fas fa-envelope mr-2" style="color: var(--gold-primary);"></i> Your Email Address
-          </label>
-          <input type="email" name="email" id="email" required placeholder="you@example.com"
-            class="form-input">
-          <p class="note-text">We'll send your ClickUp and Slack invites to this email</p>
-        </div>
-
-        <button type="submit" class="submit-btn">
-          <i class="fas fa-check-circle mr-2"></i> Complete Setup
-        </button>
-      </form>
+    <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank"><i class="fas fa-external-link-alt"></i> Go to Business Manager</a>
+    <button class="tip-btn" onclick="showTip('metaTip')"><i class="fas fa-lightbulb"></i> Tip: Required permission level</button>
+    <div style="display: none;" id="metaTip">
+      <strong>What access we need:</strong> We require <strong>Admin or Manage Ad Accounts</strong> access to your Business Manager. This allows us to create ads, manage pixels, and view analytics. Don't worry — we never touch billing info.
     </div>
+
+    <p class="mt-4"><strong>2. Grant access to your Facebook Page:</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank"><i class="fas fa-th-large"></i> Page Settings</a>
+    <button class="tip-btn" onclick="showTip('pageTip')"><i class="fas fa-lightbulb"></i> Tip: Page role needed</button>
+    <div style="display: none;" id="pageTip">We need <strong>Advertiser or Admin</strong> role on the Page. This lets us boost posts and run Page-Like campaigns.</div>
+
+    <p class="mt-4"><strong>3. Grant access to your Ad Account:</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank"><i class="fas fa-chart-line"></i> Ad Account Settings</a>
+    <button class="tip-btn" onclick="showTip('adTip')"><i class="fas fa-lightbulb"></i> Tip: Ad account level</button>
+    <div style="display: none;" id="adTip">We require <strong>Manage Campaigns</strong> permission. We never request billing permissions.</div>
+
+    <p class="mt-4"><strong>4. Pixel Access (Events Manager):</strong></p>
+    <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank"><i class="fas fa-code"></i> Events Manager</a>
+    <button class="tip-btn" onclick="showTip('pixelTip')"><i class="fas fa-lightbulb"></i> Tip: Pixel permissions</button>
+    <div style="display: none;" id="pixelTip">Assign our partner ID with <strong>Manage Pixels</strong> access so we can install and optimize conversion events.</div>
+
+    <p class="mt-4"><strong>5. Instagram Business Account (if connected to BM):</strong></p>
+    <a class="step-link" href="https://business.facebook.com/settings/instagram-accounts" target="_blank"><i class="fab fa-instagram"></i> Instagram Accounts</a>
+    <button class="tip-btn" onclick="showTip('igTip')"><i class="fas fa-lightbulb"></i> Tip: Instagram access</button>
+    <div style="display: none;" id="igTip">If your Instagram is linked to your Business Manager, please add us as a <strong>Partner</strong> with "Manage Advertisements" permission. If not yet connected, connect it first (Settings → Instagram Accounts).</div>
   </div>
 
-  <!-- Floating chat button -->
-  <div class="chat-floating">
-    <button class="chat-button" id="chatButton">
-      <i class="fas fa-comment-dots"></i>
-    </button>
+  <!-- Website & Landing Pages Card (simplified, no platform buttons) -->
+  <div class="card">
+    <h2><i class="fas fa-globe"></i> Website / Landing Page Access</h2>
+    <p>We need access to your website or landing page platform to install tracking pixels (Meta, Google) and optimize conversion paths.</p>
+    <p class="mt-2"><strong>How to provide access:</strong> Add our team email <strong>akram@mobekmedia.site</strong> as an administrator or editor on your platform (WordPress, Shopify, Webflow, Unbounce, Wix, etc.). Alternatively, share a temporary login via a secure password manager (we recommend 1Password).</p>
+    <div class="mt-3 flex items-center gap-3">
+      <input id="emailCopy" value="akram@mobekmedia.site" readonly class="border rounded px-3 py-2 bg-gray-100 flex-1">
+      <button class="copy-btn" onclick="copyToClipboard('emailCopy')">📋 Copy Email</button>
+    </div>
+    <button class="tip-btn mt-3" onclick="showTip('websiteTip')"><i class="fas fa-lightbulb"></i> Tip: What we exactly need</button>
+    <div style="display: none;" id="websiteTip">We need <strong>admin or developer access</strong> to insert Meta Pixel, Conversions API, and custom audiences. Don't worry — we only touch tracking scripts and never modify content/pricing.</div>
   </div>
 
-  <!-- Enhanced Tawk.to Integration -->
-  <script type="text/javascript">
-    // Initialize Tawk_API variables
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    
-    // Load Tawk.to script
-    (function(){
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/688393fc8beeee192b5d57c7/default';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-    
-    // Function to check if Tawk.to is ready
-    function checkTawkReady() {
-      if (window.Tawk_API && window.Tawk_API.toggle) {
-        document.getElementById('chatButton').addEventListener('click', function() {
-          Tawk_API.toggle();
-        });
-      } else {
-        setTimeout(checkTawkReady, 500);
-      }
+  <!-- Creative assets link (integrated with Next button via Formspree) -->
+  <div class="card">
+    <h2><i class="fas fa-photo-video"></i> Creative Assets (Images & Videos)</h2>
+    <p>Please share a link to your product photos, videos, and any brand assets (Google Drive, Dropbox, OneDrive, or shared folder).</p>
+    <form id="creativeForm" action="https://formspree.io/f/xanbqzjl" method="POST" class="mt-3">
+      <input type="hidden" name="_subject" value="New Creative Assets Link from Client">
+      <input type="url" name="creative-link" id="creativeLink" class="form-input" placeholder="e.g., https://drive.google.com/... or https://dropbox.com/..." required>
+      <div class="text-sm text-gray-500 mt-2">We'll use these visuals to create high-converting ad creatives.</div>
+    </form>
+    <button class="tip-btn mt-3" onclick="showTip('creativeTip')"><i class="fas fa-lightbulb"></i> Tip: Best practices</button>
+    <div style="display: none;" id="creativeTip">Include lifestyle images, before/after kitchen shots, and short demo videos (15-30 sec). High resolution preferred. Folders organized by product category help us work faster.</div>
+  </div>
+
+  <!-- Navigation Buttons: Previous, Next (Next submits creative form + proceeds) -->
+  <div class="nav-buttons">
+    <a href="index.html" class="btn-primary"><i class="fas fa-arrow-left"></i> Previous</a>
+    <button id="nextBtn" class="btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+  </div>
+</div>
+
+<!-- Tawk.to Integration (same as audience) -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/688f950a8ba539192ec9c8c9/1j1odsd19';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+
+<!-- Popup overlay for text tips -->
+<div id="tipPopup" class="popup" onclick="closeTip()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="closeTip()">✕</button>
+    <div id="tipMessage" style="font-size: 1rem; line-height: 1.5;"></div>
+  </div>
+</div>
+
+<script>
+  // Copy to clipboard function (enhanced)
+  function copyToClipboard(id) {
+    const copyText = document.getElementById(id);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    const btn = copyText.nextElementSibling; 
+    if (btn && btn.classList.contains('copy-btn')) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ Copied!';
+      setTimeout(() => { btn.innerHTML = originalText; }, 2000);
     }
-    
-    // Start checking when page loads
-    window.addEventListener('DOMContentLoaded', function() {
-      checkTawkReady();
-      
-      // Fallback: If chat doesn't load within 5 seconds, open in new tab
-      setTimeout(function() {
-        if (!window.Tawk_API || !window.Tawk_API.toggle) {
-          document.getElementById('chatButton').addEventListener('click', function() {
-            window.open('https://tawk.to/chat/688393fc8beeee192b5d57c7/default', '_blank');
-          });
-        }
-      }, 5000);
+  }
+
+  // Show tip from hidden div content
+  function showTip(tipId) {
+    const contentDiv = document.getElementById(tipId);
+    if (contentDiv) {
+      const message = contentDiv.innerHTML;
+      document.getElementById('tipMessage').innerHTML = message;
+      document.getElementById('tipPopup').style.display = 'flex';
+    }
+  }
+
+  function closeTip() {
+    document.getElementById('tipPopup').style.display = 'none';
+  }
+
+  // Next button: submit creative link to Formspree, then redirect to audience page
+  document.getElementById('nextBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const creativeInput = document.getElementById('creativeLink');
+    const creativeLink = creativeInput.value.trim();
+    if (!creativeLink) {
+      alert('Please provide a link to your creative assets (photos/videos). This helps us prepare effective ads.');
+      creativeInput.focus();
+      return;
+    }
+    // Validate URL format loosely
+    if (!creativeLink.match(/^https?:\/\//i)) {
+      alert('Please enter a valid URL starting with http:// or https://');
+      creativeInput.focus();
+      return;
+    }
+    // Submit the form via fetch to Formspree (to avoid page reload)
+    const form = document.getElementById('creativeForm');
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        // After successful submission, redirect to audience page
+        window.location.href = 'audience.html';
+      } else {
+        alert('There was an issue submitting the link. Please try again or contact support.');
+      }
+    }).catch(error => {
+      console.error('Error:', error);
+      alert('Network error. Please check your connection and try again.');
     });
-  </script>
-
-  <!-- Form submission script -->
-  <script>
-    document.getElementById("finalForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const email = document.getElementById("email").value;
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxpPQihYzSLjXcfgCnu-iOyFWU6aFkwPkF708lXi892KZ2e26U7oD7L_LCMPcKmQ0at/exec";
-
-      // Show loading state
-      const submitBtn = document.querySelector("#finalForm button[type='submit']");
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
-      submitBtn.disabled = true;
-
-      fetch(scriptURL, {
-        method: "POST",
-        body: new URLSearchParams({ 
-          "email": email,
-          "page": "strategy-call"
-        })
-      })
-      .then(response => {
-        if (response.ok) {
-          window.location.href = "thankyou.html"; // Redirect on success
-        } else {
-          throw new Error('Network response was not ok');
-        }
-      })
-      .catch(error => {
-        alert("There was an error submitting the form. Please try again or contact support.");
-        console.error("Error!", error.message);
-        submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Complete Setup';
-        submitBtn.disabled = false;
-      });
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
