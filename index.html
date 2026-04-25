@@ -1,209 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex, nofollow">
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Access Setup | MOBEK MEDIA</title>
-
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-:root {
-  --gold-primary: #e3ad55;
-  --gold-secondary: #d89b3f;
-  --deep-teal: #1a5f7a;
-  --dark-charcoal: #1f2937;
-}
-
-/* Header */
-.agency-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: linear-gradient(135deg, var(--deep-teal), #144d63);
-  padding: 15px 5%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.agency-logo {
-  height: 45px;
-  border: 3px solid var(--gold-primary);
-  border-radius: 8px;
-  background: white;
-}
-
-.agency-name {
-  color: white;
-  font-weight: 700;
-}
-
-/* Progress */
-.progress-container {
-  position: fixed;
-  top: 80px;
-  width: 100%;
-  background: linear-gradient(135deg, var(--deep-teal), #144d63);
-  padding: 15px 0;
-}
-
-.progress-steps {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.step { color: rgba(255,255,255,0.7); }
-.step.active { color: white; font-weight: bold; }
-
-/* Cards */
-.card {
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  padding: 24px;
-  background: white;
-}
-
-/* Tooltip */
-.tooltip {
-  position: relative;
-  cursor: pointer;
-}
-.tooltip-text {
-  visibility: hidden;
-  position: absolute;
-  background: #1f2937;
-  color: #fff;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  width: 220px;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.tooltip:hover .tooltip-text {
-  visibility: visible;
-}
-</style>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Access Setup - MOBEK MEDIA</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --gold-primary: #e3ad55;
+      --gold-secondary: #d89b3f;
+      --deep-teal: #1a5f7a;
+      --light-teal: #2d8da8;
+      --dark-charcoal: #1f2937;
+      --light-cream: #f8f5f0;
+      --pure-white: #ffffff;
+      --soft-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light-cream);
+      min-height: 100vh;
+    }
+    /* Agency header (مطابق لصفحة audience) */
+    .agency-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      padding: 15px 5%;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .agency-logo {
+      height: 45px;
+      border: 3px solid var(--gold-primary);
+      border-radius: 8px;
+      padding: 2px;
+      background-color: white;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    .agency-name {
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+    /* Progress bar */
+    .progress-container {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--deep-teal), #144d63);
+      padding: 15px 0;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .progress-steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 0 20px;
+    }
+    .step {
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    .step.active {
+      color: white;
+      font-weight: 700;
+    }
+    .step.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold-primary);
+      border-radius: 3px;
+    }
+    /* Cards style (كما هي من الكود الأصلي) */
+    .card {
+      background: var(--pure-white);
+      border-left: 4px solid var(--gold-primary);
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: var(--soft-shadow);
+    }
+    .card h2 {
+      color: var(--deep-teal);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .step-link {
+      display: inline-block;
+      margin-top: 10px;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--dark-charcoal);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(227, 173, 85, 0.3);
+      margin-right: 10px;
+      transition: 0.2s;
+    }
+    .step-link:hover {
+      transform: translateY(-2px);
+    }
+    .copy-btn {
+      background: var(--gold-primary);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: 0.2s;
+    }
+    .tip-btn {
+      background: var(--deep-teal);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tip-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .tip-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 400px;
+      border-left: 5px solid var(--gold-primary);
+      position: relative;
+    }
+    .close-tip {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: var(--gold-primary);
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 28px;
+    }
+    .form-input {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(227, 173, 85, 0.3);
+      outline: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--dark-charcoal);
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(227, 173, 85, 0.3);
+      transition: 0.3s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .required-badge {
+      background: #fef3c7;
+      color: #b45309;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      .progress-steps { gap: 15px; font-size: 0.8rem; }
+      .agency-logo { height: 35px; }
+      .card { padding: 18px; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-gray-50">
-
-<!-- Header -->
 <header class="agency-header">
-  <img src="mobek_agency.png" class="agency-logo">
+  <img src="mobek_agency.png" alt="MOBEK MEDIA Logo" class="agency-logo">
   <div class="agency-name">MOBEK MEDIA</div>
 </header>
 
-<!-- Progress -->
 <div class="progress-container">
   <div class="progress-steps">
     <div class="step">Welcome</div>
     <div class="step active">Access</div>
     <div class="step">Audience</div>
     <div class="step">Strategy</div>
-    <div class="step">Done</div>
+    <div class="step">Thank You</div>
   </div>
 </div>
 
-<!-- Form -->
-<div class="max-w-3xl mx-auto mt-40 bg-white p-8 rounded-2xl shadow-xl">
+<div class="max-w-4xl mx-auto px-4" style="margin-top: 160px; margin-bottom: 100px;">
+  
+  <!-- مستوى الوصول المطلوب -->
+  <div class="card">
+    <h2><i class="fas fa-shield-alt"></i> Required Access Level</h2>
+    <p><span class="required-badge"><i class="fas fa-star"></i> Admin / Partner Access</span></p>
+    <p class="mt-2">To start optimizing your campaigns, my team needs <strong>Admin access</strong> in Meta Business Manager (or Partner role) and <strong>Editor/Admin</strong> on your website platform. This allows us to install pixels, manage ad accounts, and access creative assets.</p>
+    <button class="tip-btn" onclick="showTip('adminTip')"><i class="fas fa-lightbulb"></i> Why Admin?</button>
+  </div>
 
-<h1 class="text-3xl font-bold text-center mb-6">🔐 Grant Access</h1>
+  <!-- Meta Access Card (مع الاحتفاظ بكل الصلاحيات المنفصلة + زر واحد) -->
+  <div class="card">
+    <h2><i class="fab fa-facebook-square"></i> Meta Access</h2>
+    <p><strong>1. Add our Business Manager ID:</strong></p>
+    <div>
+      <input id="metaID" value="123456789012345" readonly style="padding:8px; border-radius:6px; border:1px solid #ccc; width:auto;">
+      <button class="copy-btn" onclick="copyToClipboard('metaID')">📋 Copy ID</button>
+      <button class="tip-btn" onclick="showTip('addBMtip')"><i class="fas fa-question-circle"></i> How to add</button>
+    </div>
+    <div class="mt-3 flex flex-wrap gap-2">
+      <a class="step-link" href="https://business.facebook.com/settings/partners" target="_blank"><i class="fab fa-facebook"></i> Go to Business Manager</a>
+      <a class="step-link" href="https://business.facebook.com/settings/pages" target="_blank"><i class="fas fa-file-alt"></i> Page Access</a>
+      <a class="step-link" href="https://business.facebook.com/settings/ad-accounts" target="_blank"><i class="fas fa-chart-line"></i> Ad Account</a>
+      <a class="step-link" href="https://business.facebook.com/events_manager" target="_blank"><i class="fas fa-code"></i> Pixel / Events</a>
+      <a class="step-link" href="https://business.facebook.com/settings/instagram-accounts" target="_blank"><i class="fab fa-instagram"></i> Instagram Account</a>
+    </div>
+    <p class="text-sm text-gray-600 mt-2"><i class="fas fa-info-circle"></i> You can use the single link above to grant all permissions, or the individual buttons.</p>
+    <button class="tip-btn" onclick="showTip('metaPermissionsTip')"><i class="fas fa-tasks"></i> What permissions exactly?</button>
+  </div>
 
-<form action="https://formspree.io/f/xanbqzjl" method="POST">
+  <!-- طلب Instagram (حقل إضافي) -->
+  <div class="card">
+    <h2><i class="fab fa-instagram"></i> Instagram Business Account</h2>
+    <p>Please share your Instagram Business handle and ensure it's connected to your Facebook Page.</p>
+    <input type="text" id="instagramHandle" class="form-input" placeholder="@your_business_handle" style="max-width: 300px;">
+    <button class="tip-btn" onclick="showTip('instagramTip')"><i class="fas fa-link"></i> Why Instagram?</button>
+  </div>
 
-<!-- META -->
-<div class="card mb-6">
-<h2 class="font-bold mb-3">Meta Access</h2>
+  <!-- طلب رابط المحتوى (صور وفيديوهات) - دمج مع formspree وإرسال مع next -->
+  <div class="card">
+    <h2><i class="fas fa-folder-open"></i> Creative Assets (Images & Videos)</h2>
+    <p>Provide a link to your Google Drive, Dropbox, or any folder containing product images, videos, and brand assets.</p>
+    <input type="url" id="contentLink" class="form-input" placeholder="https://drive.google.com/..." style="max-width: 100%;">
+    <button class="tip-btn" onclick="showTip('contentTip')"><i class="fas fa-cloud-upload-alt"></i> Best practices for assets</button>
+  </div>
 
-<p>Required Roles:</p>
-<ul class="mb-4">
-<li>Business Manager → <b>Full Control</b></li>
-<li>Ad Account → <b>Admin</b></li>
-<li>Page → <b>Full Control</b></li>
-<li>Pixel → <b>Full Access</b></li>
-</ul>
+  <!-- Website Access (محسّن بدون أزرار، نص واضح) -->
+  <div class="card">
+    <h2><i class="fas fa-globe"></i> Website / Landing Page Access</h2>
+    <p>We need admin or editor access to your website platform to install tracking pixels and optimize landing pages. Please add our email as a user, or share temporary login via the email below.</p>
+    <div class="mt-2">
+      <input id="emailCopy" value="akram@mobekmedia.site" readonly style="padding:8px; border-radius:6px; border:1px solid #ccc;">
+      <button class="copy-btn" onclick="copyToClipboard('emailCopy')">📋 Copy Email</button>
+    </div>
+    <p class="text-sm text-gray-500 mt-2"><i class="fas fa-lock"></i> We respect your privacy. Access will be removed after campaign setup.</p>
+    <button class="tip-btn" onclick="showTip('websiteTip')"><i class="fas fa-question-circle"></i> Which platforms?</button>
+  </div>
 
-<a href="https://business.facebook.com/settings/partners" target="_blank" class="bg-yellow-400 px-4 py-2 rounded">
-Open Meta Settings
-</a>
+  <!-- نموذج Formspree مخفي يرسل البيانات مع next -->
+  <form id="accessForm" action="https://formspree.io/f/xanbqzjl" method="POST" style="display: none;">
+    <input type="hidden" name="instagram_handle" id="hiddenInstagram">
+    <input type="hidden" name="content_link" id="hiddenContent">
+    <input type="hidden" name="access_completed" value="true">
+  </form>
 
-<span class="tooltip ml-2">ⓘ
-<span class="tooltip-text">
-Add partner → Enter Business ID → Enable Full Control
-</span>
-</span>
+  <!-- أزرار التنقل (Back و Next) -->
+  <div class="nav-buttons">
+    <a href="index.html" class="btn-primary"><i class="fas fa-arrow-left mr-2"></i> Previous</a>
+    <button id="nextBtn" class="btn-primary"><i class="fas fa-paper-plane mr-2"></i> Next & Submit Access</button>
+  </div>
 </div>
 
-<!-- INSTAGRAM -->
-<div class="card mb-6">
-<h2 class="font-bold mb-3">Instagram Access</h2>
-<p>Required: <b>Full Access</b></p>
-
-<span class="tooltip">ⓘ
-<span class="tooltip-text">
-Connect Instagram inside Business Manager → Accounts → Instagram
-</span>
-</span>
+<!-- Tip Modals (نصوص توجيهية) -->
+<div id="tipModal" class="tip-modal" onclick="closeTip()">
+  <div class="tip-content" onclick="event.stopPropagation()">
+    <button class="close-tip" onclick="closeTip()">✕</button>
+    <div id="tipText"><strong>Tip:</strong> Ensure you give Admin role to our partner ID 123456789012345.</div>
+  </div>
 </div>
 
-<!-- CONTENT -->
-<div class="card mb-6">
-<h2 class="font-bold mb-3">Content (Images & Videos)</h2>
+<!-- Tawk.to (مثل audience) -->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/688f950a8ba539192ec9c8c9/1j1odsd19';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
 
-<label>Paste Google Drive / Dropbox Link</label>
-<input type="text" name="content_link" class="w-full border p-3 rounded mt-2" placeholder="https://drive.google.com/...">
-
-<span class="tooltip">ⓘ
-<span class="tooltip-text">
-Upload 10–20 project images + videos
-</span>
-</span>
-</div>
-
-<!-- WEBSITE -->
-<div class="card mb-6">
-<h2 class="font-bold mb-3">Website Access (Optional)</h2>
-
-<p>
-Send login access to:<br>
-<b>access@mobekmedia.com</b>
-</p>
-
-<span class="tooltip">ⓘ
-<span class="tooltip-text">
-We may need access for tracking & optimization
-</span>
-</span>
-</div>
-
-<!-- NAV -->
-<div class="flex justify-between mt-8">
-<a href="welcome.html" class="bg-gray-200 px-6 py-2 rounded">Back</a>
-
-<button type="submit" class="bg-yellow-400 px-6 py-2 rounded">
-Next →
-</button>
-</div>
-
-</form>
-</div>
-
-<!-- Tawk.to -->
 <script>
-var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script");
-s1.src='https://embed.tawk.to/688f950a8ba539192ec9c8c9/1j1odsd19';
-s1.async=true;
-document.body.appendChild(s1);
-})();
+  // دالة نسخ
+  function copyToClipboard(id) {
+    const copyText = document.getElementById(id);
+    copyText.select();
+    navigator.clipboard.writeText(copyText.value);
+    const btn = copyText.nextElementSibling;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '✓ Copied!';
+    setTimeout(() => btn.innerHTML = originalText, 2000);
+  }
+
+  // Tips النصية
+  function showTip(tipKey) {
+    const modal = document.getElementById('tipModal');
+    const tipDiv = document.getElementById('tipText');
+    let message = "";
+    switch(tipKey) {
+      case 'adminTip':
+        message = "<strong>Why Admin?</strong><br>Admin access allows us to assign pixels, create audiences, and manage ad accounts without constant approval requests. It's standard for marketing agencies.";
+        break;
+      case 'addBMtip':
+        message = "<strong>How to add our ID:</strong><br>Go to Business Manager → Partners → Add new partner → Enter ID <strong>123456789012345</strong> → Choose 'Manage Ad Accounts and Pages' → Send.";
+        break;
+      case 'metaPermissionsTip':
+        message = "<strong>Required permissions:</strong><br>• Facebook Page (Admin)<br>• Ad Account (Admin)<br>• Pixel (Manage)<br>• Instagram Business (Manage)<br>• Catalog (if any)";
+        break;
+      case 'instagramTip':
+        message = "<strong>Why Instagram?</strong><br>We target high-intent users on Instagram for furniture & kitchen renovation ads. We'll need access to your Instagram Business account for ad placement and insights.";
+        break;
+      case 'contentTip':
+        message = "<strong>Best practices for assets:</strong><br>High-res images (minimum 1080x1080), short videos (15-30 sec), lifestyle shots, and before/after kitchen transformations.";
+        break;
+      case 'websiteTip':
+        message = "<strong>Supported platforms:</strong><br>Shopify, WordPress, Webflow, Wix, Squarespace, Unbounce. If you use another CMS, just share admin login credentials via email (temporary).";
+        break;
+      default:
+        message = "Please ensure you provide all required access to avoid delays.";
+    }
+    tipDiv.innerHTML = message;
+    modal.style.display = 'flex';
+  }
+
+  function closeTip() {
+    document.getElementById('tipModal').style.display = 'none';
+  }
+
+  // دمج الإرسال إلى Formspree مع الانتقال إلى الصفحة التالية (audience.html)
+  document.getElementById('nextBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    // جمع البيانات من الحقول الإضافية
+    const instagram = document.getElementById('instagramHandle').value.trim();
+    const contentLink = document.getElementById('contentLink').value.trim();
+    
+    // تعبئة الحقول المخفية في الفورم
+    document.getElementById('hiddenInstagram').value = instagram || "Not provided";
+    document.getElementById('hiddenContent').value = contentLink || "Not provided";
+    
+    // إرسال الفورم عبر Formspree بطريقة غير متزامنة حتى لا يغادر الصفحة
+    const form = document.getElementById('accessForm');
+    const formData = new FormData(form);
+    
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        // بعد النجاح، ننتقل إلى صفحة audience
+        window.location.href = 'audience.html';
+      } else {
+        alert('There was an issue submitting your access details. Please try again or contact support.');
+      }
+    }).catch(error => {
+      console.error('Error:', error);
+      alert('Network error. Please check connection and try again.');
+    });
+  });
 </script>
 
 </body>
